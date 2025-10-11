@@ -27,7 +27,7 @@ class SampleProducts {
       oldPrice: 22,
       newPrice: 19,
       isNew: false,
-      isFavorite: true,
+      isFavorite: false,
     ),
     Product(
       id: '3',
@@ -66,7 +66,7 @@ class SampleProducts {
       oldPrice: 89,
       newPrice: 89,
       isNew: true,
-      isFavorite: true,
+      isFavorite: false,
     ),
     Product(
       id: '6',
@@ -104,7 +104,7 @@ class SampleProducts {
       oldPrice: 28,
       newPrice: 28,
       isNew: false,
-      isFavorite: true,
+      isFavorite: false,
     ),
     Product(
       id: '9',

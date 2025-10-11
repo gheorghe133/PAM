@@ -126,6 +126,8 @@ class ProductImages extends StatelessWidget {
                       ),
                     ),
                   ),
+                  // Spacing between images
+                  SizedBox(width: 4),
                   // Second image - full screen width (25% visible initially, rest on scroll)
                   Container(
                     width: MediaQuery.of(context).size.width,
