@@ -9,13 +9,12 @@ class ExpandableSections extends StatelessWidget {
       children: [
         // Separator line
         Container(
-          color: Color(0xFF9B9B9B),
-          margin: const EdgeInsets.only(bottom: 15, left: 1, right: 1),
+          color: Color(0xFFE5E5E5),
+          margin: const EdgeInsets.only(bottom: 12),
           height: 1,
           width: double.infinity,
-          child: SizedBox(),
         ),
-        
+
         // Item details section
         _buildExpandableSection(
           title: "Item details",
@@ -24,11 +23,10 @@ class ExpandableSections extends StatelessWidget {
 
         // Separator line
         Container(
-          color: Color(0xFF9B9B9B),
-          margin: const EdgeInsets.only(bottom: 14),
+          color: Color(0xFFE5E5E5),
+          margin: const EdgeInsets.only(bottom: 12),
           height: 1,
           width: double.infinity,
-          child: SizedBox(),
         ),
 
         // Shipping info section
@@ -39,11 +37,10 @@ class ExpandableSections extends StatelessWidget {
 
         // Separator line
         Container(
-          color: Color(0xFF9B9B9B),
-          margin: const EdgeInsets.only(bottom: 14),
+          color: Color(0xFFE5E5E5),
+          margin: const EdgeInsets.only(bottom: 12),
           height: 1,
           width: double.infinity,
-          child: SizedBox(),
         ),
 
         // Support section
@@ -51,14 +48,13 @@ class ExpandableSections extends StatelessWidget {
           title: "Support",
           onTap: () => print('Support tapped'),
         ),
-        
+
         // Separator line
         Container(
-          color: Color(0xFF9B9B9B),
-          margin: const EdgeInsets.only(bottom: 23),
+          color: Color(0xFFE5E5E5),
+          margin: const EdgeInsets.only(bottom: 20),
           height: 1,
           width: double.infinity,
-          child: SizedBox(),
         ),
       ],
     );
@@ -68,34 +64,31 @@ class ExpandableSections extends StatelessWidget {
     required String title,
     required VoidCallback onTap,
   }) {
-    return IntrinsicHeight(
-      child: Container(
-        margin: const EdgeInsets.only(bottom: 16, left: 16, right: 16),
-        width: double.infinity,
-        child: InkWell(
-          onTap: onTap,
+    return Container(
+      margin: const EdgeInsets.only(bottom: 12, left: 16, right: 16),
+      width: double.infinity,
+      child: InkWell(
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 6),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                margin: const EdgeInsets.symmetric(vertical: 6),
+              Expanded(
                 child: Text(
                   title,
                   style: TextStyle(
                     color: Color(0xFF222222),
                     fontSize: 16,
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
               ),
-              Container(
-                width: 16,
-                height: 16,
-                child: Icon(
-                  Icons.keyboard_arrow_down,
-                  size: 16,
-                  color: Colors.grey[600],
-                ),
+              Icon(
+                Icons.keyboard_arrow_right,
+                size: 20,
+                color: Color(0xFF9B9B9B),
               ),
             ],
           ),

@@ -46,18 +46,21 @@ class RelatedProducts extends StatelessWidget {
               width: double.infinity,
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // First product (Sale item)
-                    _buildSaleProduct(),
-                    
-                    // Second product (New item)
-                    _buildNewProduct(),
-                    
-                    // Third product (New item)
-                    _buildNewProduct(),
-                  ],
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 16),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // First product (Sale item)
+                      _buildSaleProduct(),
+
+                      // Second product (New item)
+                      _buildNewProduct(),
+
+                      // Third product (New item)
+                      _buildNewProduct(),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -167,8 +170,8 @@ class RelatedProducts extends StatelessWidget {
                 ),
               ),
               
-              // Rating stars
-              _buildRatingStars(),
+              // Rating stars (5/5 pentru sales)
+              _buildRatingStars(rating: 5, reviewCount: 10),
               
               // Brand name
               Container(
@@ -363,8 +366,8 @@ class RelatedProducts extends StatelessWidget {
                           ),
                         ),
 
-                        // Rating stars
-                        _buildRatingStars(),
+                        // Rating stars (0/5 pentru new)
+                        _buildRatingStars(rating: 0, reviewCount: 0),
                       ],
                     ),
                   ),
@@ -413,14 +416,14 @@ class RelatedProducts extends StatelessWidget {
     );
   }
 
-  Widget _buildRatingStars() {
+  Widget _buildRatingStars({required int rating, required int reviewCount}) {
     return IntrinsicWidth(
       child: IntrinsicHeight(
         child: Container(
           margin: const EdgeInsets.only(bottom: 6),
           child: Row(
             children: [
-              // 5 Stars
+              // Stars
               ...List.generate(5, (index) => Container(
                 margin: const EdgeInsets.only(right: 1),
                 width: 14,
@@ -428,7 +431,7 @@ class RelatedProducts extends StatelessWidget {
                 child: Icon(
                   Icons.star,
                   size: 14,
-                  color: Color(0xFFFFBA49),
+                  color: index < rating ? Color(0xFFFFBA49) : Color(0xFFE0E0E0),
                 ),
               )),
 
@@ -436,7 +439,7 @@ class RelatedProducts extends StatelessWidget {
               Container(
                 margin: const EdgeInsets.only(left: 2),
                 child: Text(
-                  "(10)",
+                  "($reviewCount)",
                   style: TextStyle(
                     color: Color(0xFF9B9B9B),
                     fontSize: 10,

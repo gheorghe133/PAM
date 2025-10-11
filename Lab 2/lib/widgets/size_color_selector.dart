@@ -27,14 +27,16 @@ class SizeColorSelector extends StatelessWidget {
               child: IntrinsicHeight(
                 child: Container(
                   decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Color(0xFFF01F0E),
-                      width: 1,
-                    ),
+                    border: Border.all(color: Color(0xFFF01F0E), width: 1),
                     borderRadius: BorderRadius.circular(8),
                     color: Color(0xFFFFFFFF),
                   ),
-                  padding: const EdgeInsets.only(top: 10, bottom: 10, left: 12, right: 8),
+                  padding: const EdgeInsets.only(
+                    top: 10,
+                    bottom: 10,
+                    left: 12,
+                    right: 8,
+                  ),
                   margin: const EdgeInsets.only(right: 16),
                   child: Row(
                     children: [
@@ -50,7 +52,7 @@ class SizeColorSelector extends StatelessWidget {
                             decoration: InputDecoration(
                               hintText: selectedSize,
                               isDense: true,
-                              contentPadding: EdgeInsets.symmetric(vertical: 0),
+                              contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 4),
                               border: InputBorder.none,
                             ),
                           ),
@@ -76,14 +78,16 @@ class SizeColorSelector extends StatelessWidget {
               child: IntrinsicHeight(
                 child: Container(
                   decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Color(0xFF9B9B9B),
-                      width: 1,
-                    ),
+                    border: Border.all(color: Color(0xFF9B9B9B), width: 1),
                     borderRadius: BorderRadius.circular(8),
                     color: Color(0xFFFFFFFF),
                   ),
-                  padding: const EdgeInsets.only(top: 10, bottom: 10, left: 12, right: 8),
+                  padding: const EdgeInsets.only(
+                    top: 10,
+                    bottom: 10,
+                    left: 12,
+                    right: 8,
+                  ),
                   margin: const EdgeInsets.only(right: 16),
                   child: Row(
                     children: [
@@ -99,7 +103,7 @@ class SizeColorSelector extends StatelessWidget {
                             decoration: InputDecoration(
                               hintText: selectedColor,
                               isDense: true,
-                              contentPadding: EdgeInsets.symmetric(vertical: 0),
+                              contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 4),
                               border: InputBorder.none,
                             ),
                           ),
@@ -146,6 +150,4 @@ class SizeColorSelector extends StatelessWidget {
       ),
     );
   }
-
-
 }
