@@ -23,46 +23,108 @@ class SizeColorSelector extends StatelessWidget {
         child: Row(
           children: [
             // Size Selector
-            _buildSelector(
-              value: selectedSize,
-              borderColor: Color(0xFFF01F0E),
-              onChanged: onSizeChanged,
-              options: ['XS', 'S', 'M', 'L', 'XL'],
-              placeholder: 'Size',
+            IntrinsicWidth(
+              child: IntrinsicHeight(
+                child: Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Color(0xFFF01F0E),
+                      width: 1,
+                    ),
+                    borderRadius: BorderRadius.circular(8),
+                    color: Color(0xFFFFFFFF),
+                  ),
+                  padding: const EdgeInsets.only(top: 10, bottom: 10, left: 12, right: 8),
+                  margin: const EdgeInsets.only(right: 16),
+                  child: Row(
+                    children: [
+                      IntrinsicHeight(
+                        child: Container(
+                          alignment: Alignment.center,
+                          width: 102,
+                          child: TextField(
+                            style: TextStyle(
+                              color: Color(0xFF222222),
+                              fontSize: 14,
+                            ),
+                            decoration: InputDecoration(
+                              hintText: selectedSize,
+                              isDense: true,
+                              contentPadding: EdgeInsets.symmetric(vertical: 0),
+                              border: InputBorder.none,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        width: 16,
+                        height: 16,
+                        child: Image.network(
+                          "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/M1cILAB2gT/1d85lyb3_expires_30_days.png",
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ),
-            
-            SizedBox(width: 16),
-            
+
             // Color Selector
-            _buildSelector(
-              value: selectedColor,
-              borderColor: Color(0xFF9B9B9B),
-              onChanged: onColorChanged,
-              options: ['Black', 'White', 'Red', 'Blue', 'Green'],
-              placeholder: 'Black',
+            IntrinsicWidth(
+              child: IntrinsicHeight(
+                child: Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Color(0xFF9B9B9B),
+                      width: 1,
+                    ),
+                    borderRadius: BorderRadius.circular(8),
+                    color: Color(0xFFFFFFFF),
+                  ),
+                  padding: const EdgeInsets.only(top: 10, bottom: 10, left: 12, right: 8),
+                  margin: const EdgeInsets.only(right: 16),
+                  child: Row(
+                    children: [
+                      IntrinsicHeight(
+                        child: Container(
+                          alignment: Alignment.center,
+                          width: 101,
+                          child: TextField(
+                            style: TextStyle(
+                              color: Color(0xFF222222),
+                              fontSize: 14,
+                            ),
+                            decoration: InputDecoration(
+                              hintText: selectedColor,
+                              isDense: true,
+                              contentPadding: EdgeInsets.symmetric(vertical: 0),
+                              border: InputBorder.none,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        width: 16,
+                        height: 16,
+                        child: Image.network(
+                          "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/M1cILAB2gT/19sigp76_expires_30_days.png",
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ),
-            
-            SizedBox(width: 16),
-            
+
             // Favorite button
             Container(
               width: 36,
               height: 36,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.circle,
-                boxShadow: [
-                  BoxShadow(
-                    color: Color(0x14000000),
-                    blurRadius: 4,
-                    offset: Offset(0, 4),
-                  ),
-                ],
-              ),
-              child: Icon(
-                Icons.favorite_border,
-                size: 24,
-                color: Color(0xFF9B9B9B),
+              child: Image.network(
+                "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/M1cILAB2gT/waf46y0h_expires_30_days.png",
+                fit: BoxFit.fill,
               ),
             ),
           ],
@@ -71,76 +133,5 @@ class SizeColorSelector extends StatelessWidget {
     );
   }
 
-  Widget _buildSelector({
-    required String value,
-    required Color borderColor,
-    required Function(String) onChanged,
-    required List<String> options,
-    required String placeholder,
-  }) {
-    return IntrinsicWidth(
-      child: IntrinsicHeight(
-        child: Container(
-          decoration: BoxDecoration(
-            border: Border.all(
-              color: borderColor,
-              width: 1,
-            ),
-            borderRadius: BorderRadius.circular(8),
-            color: Color(0xFFFFFFFF),
-          ),
-          padding: const EdgeInsets.only(top: 10, bottom: 10, left: 12, right: 8),
-          child: Row(
-            children: [
-              IntrinsicHeight(
-                child: Container(
-                  alignment: Alignment.center,
-                  width: 102,
-                  child: DropdownButton<String>(
-                    value: options.contains(value) ? value : null,
-                    hint: Text(
-                      placeholder,
-                      style: TextStyle(
-                        color: Color(0xFF222222),
-                        fontSize: 14,
-                      ),
-                    ),
-                    underline: SizedBox(),
-                    isExpanded: true,
-                    icon: SizedBox(),
-                    onChanged: (String? newValue) {
-                      if (newValue != null) {
-                        onChanged(newValue);
-                      }
-                    },
-                    items: options.map<DropdownMenuItem<String>>((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(
-                          value,
-                          style: TextStyle(
-                            color: Color(0xFF222222),
-                            fontSize: 14,
-                          ),
-                        ),
-                      );
-                    }).toList(),
-                  ),
-                ),
-              ),
-              Container(
-                width: 16,
-                height: 16,
-                child: Icon(
-                  Icons.keyboard_arrow_down,
-                  size: 16,
-                  color: Colors.black,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
+
 }

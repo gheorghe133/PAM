@@ -58,10 +58,9 @@ class StatusBar extends StatelessWidget {
                       margin: const EdgeInsets.only(right: 5),
                       width: 17,
                       height: 10,
-                      child: Icon(
-                        Icons.signal_cellular_4_bar,
-                        size: 10,
-                        color: Colors.black,
+                      child: Image.network(
+                        "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/M1cILAB2gT/mjb81m8i_expires_30_days.png",
+                        fit: BoxFit.fill,
                       ),
                     ),
                     // WiFi icon
@@ -69,20 +68,18 @@ class StatusBar extends StatelessWidget {
                       margin: const EdgeInsets.only(right: 5),
                       width: 15,
                       height: 10,
-                      child: Icon(
-                        Icons.wifi,
-                        size: 10,
-                        color: Colors.black,
+                      child: Image.network(
+                        "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/M1cILAB2gT/2nqsft6v_expires_30_days.png",
+                        fit: BoxFit.fill,
                       ),
                     ),
                     // Battery icon
                     Container(
                       width: 24,
                       height: 11,
-                      child: Icon(
-                        Icons.battery_full,
-                        size: 11,
-                        color: Colors.black,
+                      child: Image.network(
+                        "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/M1cILAB2gT/kg87hdgs_expires_30_days.png",
+                        fit: BoxFit.fill,
                       ),
                     ),
                   ],

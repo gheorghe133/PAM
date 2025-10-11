@@ -16,12 +16,12 @@ class ExpandableSections extends StatelessWidget {
           child: SizedBox(),
         ),
         
-        // Shipping info section
+        // Item details section
         _buildExpandableSection(
-          title: "Shipping info",
-          onTap: () => print('Shipping info tapped'),
+          title: "Item details",
+          onTap: () => print('Item details tapped'),
         ),
-        
+
         // Separator line
         Container(
           color: Color(0xFF9B9B9B),
@@ -30,7 +30,22 @@ class ExpandableSections extends StatelessWidget {
           width: double.infinity,
           child: SizedBox(),
         ),
-        
+
+        // Shipping info section
+        _buildExpandableSection(
+          title: "Shipping info",
+          onTap: () => print('Shipping info tapped'),
+        ),
+
+        // Separator line
+        Container(
+          color: Color(0xFF9B9B9B),
+          margin: const EdgeInsets.only(bottom: 14),
+          height: 1,
+          width: double.infinity,
+          child: SizedBox(),
+        ),
+
         // Support section
         _buildExpandableSection(
           title: "Support",
@@ -76,10 +91,9 @@ class ExpandableSections extends StatelessWidget {
               Container(
                 width: 16,
                 height: 16,
-                child: Icon(
-                  Icons.keyboard_arrow_down,
-                  size: 16,
-                  color: Colors.black,
+                child: Image.network(
+                  "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/M1cILAB2gT/1d85lyb3_expires_30_days.png",
+                  fit: BoxFit.fill,
                 ),
               ),
             ],

@@ -25,14 +25,13 @@ class CustomAppBar extends StatelessWidget {
               child: Container(
                 width: 24,
                 height: 24,
-                child: Icon(
-                  Icons.arrow_back_ios,
-                  size: 24,
-                  color: Colors.black,
+                child: Image.network(
+                  "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/M1cILAB2gT/0sqjm4gd_expires_30_days.png",
+                  fit: BoxFit.fill,
                 ),
               ),
             ),
-            
+
             // Title
             Text(
               title,
@@ -41,15 +40,14 @@ class CustomAppBar extends StatelessWidget {
                 fontSize: 18,
               ),
             ),
-            
-            // Share button (using original design icon)
+
+            // Share button
             Container(
               width: 24,
               height: 24,
-              child: Icon(
-                Icons.share,
-                size: 24,
-                color: Colors.black,
+              child: Image.network(
+                "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/M1cILAB2gT/00naa2ty_expires_30_days.png",
+                fit: BoxFit.fill,
               ),
             ),
           ],
