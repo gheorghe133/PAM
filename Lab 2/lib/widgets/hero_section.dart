@@ -39,12 +39,9 @@ class HeroSection extends StatelessWidget {
         children: [
           // Status Bar (if enabled)
           if (showStatusBar) _buildStatusBar(),
-          
+
           // Custom content or default title
-          if (customContent != null)
-            customContent!
-          else
-            _buildDefaultTitle(),
+          if (customContent != null) customContent! else _buildDefaultTitle(),
         ],
       ),
     );
@@ -102,12 +99,14 @@ class HeroSection extends StatelessWidget {
         alignment: titleAlignment,
         child: Text(
           title,
-          style: titleStyle ?? TextStyle(
-            color: Colors.white,
-            fontSize: 48,
-            fontWeight: FontWeight.w900,
-            height: 1.0,
-          ),
+          style:
+              titleStyle ??
+              TextStyle(
+                color: Colors.white,
+                fontSize: 48,
+                fontWeight: FontWeight.w900,
+                height: 1.0,
+              ),
         ),
       ),
     );
@@ -122,24 +121,107 @@ class StreetClothesHeroSection extends StatelessWidget {
   const StreetClothesHeroSection({
     Key? key,
     this.backgroundImagePath = 'assests/banner.jpg',
-    this.backgroundImageUrl,
+    this.backgroundImageUrl =
+        "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/M1cILAB2gT/lw2j9154_expires_30_days.png",
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return HeroSection(
-      title: "Street clothes",
-      backgroundImagePath: backgroundImagePath,
-      backgroundImageUrl: backgroundImageUrl,
-      height: 240,
-      titleStyle: TextStyle(
-        color: Colors.white,
-        fontSize: 48,
-        fontWeight: FontWeight.w900,
-        height: 1.0,
+    return IntrinsicHeight(
+      child: Container(
+        padding: const EdgeInsets.only(top: 12, bottom: 26),
+        margin: const EdgeInsets.only(bottom: 37),
+        width: double.infinity,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: backgroundImageUrl != null
+                ? NetworkImage(backgroundImageUrl!)
+                : AssetImage(backgroundImagePath!) as ImageProvider,
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Status Bar
+            IntrinsicHeight(
+              child: Container(
+                padding: const EdgeInsets.symmetric(vertical: 2),
+                margin: const EdgeInsets.only(bottom: 103, left: 21, right: 21),
+                width: double.infinity,
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: IntrinsicHeight(
+                        child: Container(
+                          margin: const EdgeInsets.only(right: 12),
+                          width: double.infinity,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                margin: const EdgeInsets.symmetric(
+                                  horizontal: 12,
+                                ),
+                                child: Text(
+                                  "9:41",
+                                  style: TextStyle(
+                                    color: Color(0xFF000000),
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(right: 5),
+                      width: 17,
+                      height: 10,
+                      child: Image.network(
+                        "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/M1cILAB2gT/93rh51pf_expires_30_days.png",
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(right: 5),
+                      width: 15,
+                      height: 10,
+                      child: Image.network(
+                        "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/M1cILAB2gT/ypwfvvoq_expires_30_days.png",
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                    Container(
+                      width: 24,
+                      height: 11,
+                      child: Image.network(
+                        "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/M1cILAB2gT/7w64gwjv_expires_30_days.png",
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            // Title
+            Container(
+              margin: const EdgeInsets.only(left: 16, right: 123),
+              child: Text(
+                "Street clothes",
+                style: TextStyle(
+                  color: Color(0xFFFFFFFF),
+                  fontSize: 34,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
-      titlePadding: EdgeInsets.only(top: 160, left: 21),
-      showStatusBar: true,
     );
   }
 }
