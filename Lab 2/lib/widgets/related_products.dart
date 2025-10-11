@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../models/product.dart';
 import '../data/sample_products.dart';
 import 'product_card.dart';
 
@@ -56,9 +55,12 @@ class RelatedProducts extends StatelessWidget {
                               .allProducts[0], // ID '1' - primul de la Sales
                           width: 148,
                           height: 300,
-                          onTap: () => print('Related product 1 tapped'),
-                          onFavoritePressed: () =>
-                              print('Related product 1 favorite pressed'),
+                          onTap: () {
+                            // Navigate to product detail page
+                          },
+                          onFavoritePressed: () {
+                            // Toggle favorite status
+                          },
                         ),
                       ),
 
@@ -70,9 +72,12 @@ class RelatedProducts extends StatelessWidget {
                               .allProducts[4], // ID '5' - al doilea de la New
                           width: 148,
                           height: 300,
-                          onTap: () => print('Related product 2 tapped'),
-                          onFavoritePressed: () =>
-                              print('Related product 2 favorite pressed'),
+                          onTap: () {
+                            // Navigate to product detail page
+                          },
+                          onFavoritePressed: () {
+                            // Toggle favorite status
+                          },
                         ),
                       ),
 
@@ -84,9 +89,12 @@ class RelatedProducts extends StatelessWidget {
                               .allProducts[5], // ID '6' - al treilea de la New
                           width: 148,
                           height: 300,
-                          onTap: () => print('Related product 3 tapped'),
-                          onFavoritePressed: () =>
-                              print('Related product 3 favorite pressed'),
+                          onTap: () {
+                            // Navigate to product detail page
+                          },
+                          onFavoritePressed: () {
+                            // Toggle favorite status
+                          },
                         ),
                       ),
                     ],

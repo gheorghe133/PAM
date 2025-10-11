@@ -128,12 +128,10 @@ class HeroSection extends StatelessWidget {
 // Specialized hero sections for different use cases
 class StreetClothesHeroSection extends StatelessWidget {
   final String? backgroundImagePath;
-  final String? backgroundImageUrl;
 
   const StreetClothesHeroSection({
     Key? key,
     this.backgroundImagePath = 'assests/banner.jpg',
-    this.backgroundImageUrl = null, // Nu mai folosim URL-uri externe
   }) : super(key: key);
 
   @override
@@ -145,9 +143,7 @@ class StreetClothesHeroSection extends StatelessWidget {
         width: double.infinity,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: backgroundImageUrl != null
-                ? NetworkImage(backgroundImageUrl!)
-                : AssetImage(backgroundImagePath!) as ImageProvider,
+            image: AssetImage(backgroundImagePath!),
             fit: BoxFit.cover,
           ),
         ),
@@ -279,7 +275,7 @@ class CustomHeroSection extends StatelessWidget {
                 Text(
                   subtitle!,
                   style: TextStyle(
-                    color: textColor?.withOpacity(0.8),
+                    color: textColor?.withValues(alpha: 0.8),
                     fontSize: 16,
                     fontWeight: FontWeight.w400,
                   ),
@@ -428,5 +424,3 @@ class BatteryPainter extends CustomPainter {
   @override
   bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
-
-

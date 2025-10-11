@@ -81,7 +81,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   }
 
   void _onAddToCart() {
-    print('Add to cart pressed');
+    // Add product to cart logic here
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text('Product added to cart!'),

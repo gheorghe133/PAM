@@ -48,7 +48,6 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _onViewAllPressed(String section) {
-    print('View all pressed for $section section');
     // Navigate to category page or show all products
     // Navigator.push(context, MaterialPageRoute(builder: (context) => CategoryPage(section: section)));
   }
@@ -73,8 +72,6 @@ class _HomeScreenState extends State<HomeScreen> {
       }
     });
 
-    print(
-      'Favorite toggled for: ${product.itemName}, isFavorite: ${!product.isFavorite}',
-    );
+    // Favorite status updated successfully
   }
 }

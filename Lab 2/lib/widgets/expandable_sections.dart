@@ -18,7 +18,9 @@ class ExpandableSections extends StatelessWidget {
         // Item details section
         _buildExpandableSection(
           title: "Item details",
-          onTap: () => print('Item details tapped'),
+          onTap: () {
+            // Expand item details section
+          },
         ),
 
         // Separator line
@@ -32,7 +34,9 @@ class ExpandableSections extends StatelessWidget {
         // Shipping info section
         _buildExpandableSection(
           title: "Shipping info",
-          onTap: () => print('Shipping info tapped'),
+          onTap: () {
+            // Expand shipping info section
+          },
         ),
 
         // Separator line
@@ -46,7 +50,9 @@ class ExpandableSections extends StatelessWidget {
         // Support section
         _buildExpandableSection(
           title: "Support",
-          onTap: () => print('Support tapped'),
+          onTap: () {
+            // Expand support section
+          },
         ),
 
         // Separator line
