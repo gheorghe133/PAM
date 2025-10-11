@@ -91,9 +91,10 @@ class ExpandableSections extends StatelessWidget {
               Container(
                 width: 16,
                 height: 16,
-                child: Image.network(
-                  "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/M1cILAB2gT/1d85lyb3_expires_30_days.png",
-                  fit: BoxFit.fill,
+                child: Icon(
+                  Icons.keyboard_arrow_down,
+                  size: 16,
+                  color: Colors.grey[600],
                 ),
               ),
             ],

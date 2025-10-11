@@ -92,7 +92,7 @@ class RelatedProducts extends StatelessWidget {
                                   padding: const EdgeInsets.only(top: 8, bottom: 152, left: 9, right: 99),
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
-                                      image: NetworkImage("https://storage.googleapis.com/tagjs-prod.appspot.com/v1/M1cILAB2gT/ixqhqhqr_expires_30_days.png"),
+                                      image: AssetImage('assests/sales_image_1.png'),
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -288,7 +288,7 @@ class RelatedProducts extends StatelessWidget {
                                             padding: const EdgeInsets.only(top: 8, bottom: 152, left: 9, right: 99),
                                             decoration: BoxDecoration(
                                               image: DecorationImage(
-                                                image: NetworkImage("https://storage.googleapis.com/tagjs-prod.appspot.com/v1/M1cILAB2gT/ixqhqhqr_expires_30_days.png"),
+                                                image: AssetImage('assests/new_image_2.png'),
                                                 fit: BoxFit.cover,
                                               ),
                                             ),

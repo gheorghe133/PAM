@@ -59,9 +59,10 @@ class SizeColorSelector extends StatelessWidget {
                       Container(
                         width: 16,
                         height: 16,
-                        child: Image.network(
-                          "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/M1cILAB2gT/1d85lyb3_expires_30_days.png",
-                          fit: BoxFit.fill,
+                        child: Icon(
+                          Icons.keyboard_arrow_down,
+                          size: 16,
+                          color: Colors.grey[600],
                         ),
                       ),
                     ],
@@ -107,9 +108,10 @@ class SizeColorSelector extends StatelessWidget {
                       Container(
                         width: 16,
                         height: 16,
-                        child: Image.network(
-                          "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/M1cILAB2gT/19sigp76_expires_30_days.png",
-                          fit: BoxFit.fill,
+                        child: Icon(
+                          Icons.keyboard_arrow_down,
+                          size: 16,
+                          color: Colors.grey[600],
                         ),
                       ),
                     ],
@@ -122,9 +124,21 @@ class SizeColorSelector extends StatelessWidget {
             Container(
               width: 36,
               height: 36,
-              child: Image.network(
-                "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/M1cILAB2gT/waf46y0h_expires_30_days.png",
-                fit: BoxFit.fill,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.1),
+                    blurRadius: 4,
+                    offset: Offset(0, 2),
+                  ),
+                ],
+              ),
+              child: Icon(
+                Icons.favorite_border,
+                size: 20,
+                color: Colors.grey[600],
               ),
             ),
           ],

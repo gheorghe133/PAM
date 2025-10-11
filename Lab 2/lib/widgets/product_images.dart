@@ -9,7 +9,12 @@ class ProductImages extends StatelessWidget {
       children: [
         // Status bar (separate from image)
         Container(
-          padding: const EdgeInsets.only(top: 12, bottom: 8, left: 21, right: 21),
+          padding: const EdgeInsets.only(
+            top: 12,
+            bottom: 8,
+            left: 21,
+            right: 21,
+          ),
           color: Color(0xFFF9F9F9),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -29,9 +34,10 @@ class ProductImages extends StatelessWidget {
                     margin: const EdgeInsets.only(right: 5),
                     width: 17,
                     height: 10,
-                    child: Image.network(
-                      "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/M1cILAB2gT/mjb81m8i_expires_30_days.png",
-                      fit: BoxFit.fill,
+                    child: Icon(
+                      Icons.signal_cellular_4_bar,
+                      size: 12,
+                      color: Colors.black,
                     ),
                   ),
                   // WiFi icon
@@ -39,18 +45,16 @@ class ProductImages extends StatelessWidget {
                     margin: const EdgeInsets.only(right: 5),
                     width: 15,
                     height: 10,
-                    child: Image.network(
-                      "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/M1cILAB2gT/2nqsft6v_expires_30_days.png",
-                      fit: BoxFit.fill,
-                    ),
+                    child: Icon(Icons.wifi, size: 12, color: Colors.black),
                   ),
                   // Battery icon
                   Container(
                     width: 24,
                     height: 11,
-                    child: Image.network(
-                      "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/M1cILAB2gT/kg87hdgs_expires_30_days.png",
-                      fit: BoxFit.fill,
+                    child: Icon(
+                      Icons.battery_full,
+                      size: 14,
+                      color: Colors.black,
                     ),
                   ),
                 ],
@@ -72,9 +76,10 @@ class ProductImages extends StatelessWidget {
                 child: Container(
                   width: 24,
                   height: 24,
-                  child: Image.network(
-                    "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/M1cILAB2gT/0sqjm4gd_expires_30_days.png",
-                    fit: BoxFit.fill,
+                  child: Icon(
+                    Icons.arrow_back_ios,
+                    size: 18,
+                    color: Colors.black,
                   ),
                 ),
               ),
@@ -93,10 +98,7 @@ class ProductImages extends StatelessWidget {
               Container(
                 width: 24,
                 height: 24,
-                child: Image.network(
-                  "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/M1cILAB2gT/00naa2ty_expires_30_days.png",
-                  fit: BoxFit.fill,
-                ),
+                child: Icon(Icons.share, size: 18, color: Colors.black),
               ),
             ],
           ),
@@ -107,7 +109,8 @@ class ProductImages extends StatelessWidget {
           child: Container(
             margin: const EdgeInsets.only(bottom: 12),
             width: double.infinity,
-            height: 400, // Reduced height since status bar and app bar are separate
+            height:
+                400, // Reduced height since status bar and app bar are separate
             child: Stack(
               children: [
                 // Main large image background
@@ -120,9 +123,7 @@ class ProductImages extends StatelessWidget {
                         child: Container(
                           decoration: BoxDecoration(
                             image: DecorationImage(
-                              image: NetworkImage(
-                                "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/M1cILAB2gT/jap4k9er_expires_30_days.png",
-                              ),
+                              image: AssetImage('assests/product_image_1.png'),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -135,9 +136,7 @@ class ProductImages extends StatelessWidget {
                           margin: const EdgeInsets.only(left: 4),
                           decoration: BoxDecoration(
                             image: DecorationImage(
-                              image: NetworkImage(
-                                "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/M1cILAB2gT/beh6d48c_expires_30_days.png",
-                              ),
+                              image: AssetImage('assests/product_image_2.png'),
                               fit: BoxFit.cover,
                             ),
                           ),

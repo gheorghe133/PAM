@@ -121,8 +121,7 @@ class StreetClothesHeroSection extends StatelessWidget {
   const StreetClothesHeroSection({
     Key? key,
     this.backgroundImagePath = 'assests/banner.jpg',
-    this.backgroundImageUrl =
-        "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/M1cILAB2gT/lw2j9154_expires_30_days.png",
+    this.backgroundImageUrl = null, // Nu mai folosim URL-uri externe
   }) : super(key: key);
 
   @override
@@ -181,26 +180,29 @@ class StreetClothesHeroSection extends StatelessWidget {
                       margin: const EdgeInsets.only(right: 5),
                       width: 17,
                       height: 10,
-                      child: Image.network(
-                        "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/M1cILAB2gT/93rh51pf_expires_30_days.png",
-                        fit: BoxFit.fill,
+                      child: Icon(
+                        Icons.signal_cellular_4_bar,
+                        size: 12,
+                        color: Colors.white,
                       ),
                     ),
                     Container(
                       margin: const EdgeInsets.only(right: 5),
                       width: 15,
                       height: 10,
-                      child: Image.network(
-                        "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/M1cILAB2gT/ypwfvvoq_expires_30_days.png",
-                        fit: BoxFit.fill,
+                      child: Icon(
+                        Icons.wifi,
+                        size: 12,
+                        color: Colors.white,
                       ),
                     ),
                     Container(
                       width: 24,
                       height: 11,
-                      child: Image.network(
-                        "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/M1cILAB2gT/7w64gwjv_expires_30_days.png",
-                        fit: BoxFit.fill,
+                      child: Icon(
+                        Icons.battery_full,
+                        size: 14,
+                        color: Colors.white,
                       ),
                     ),
                   ],

@@ -2,7 +2,7 @@ import '../models/product.dart';
 
 class SampleProducts {
   static List<Product> get allProducts => [
-    // Sale Products
+    // Sale Products - toate cu 5 stele și 10 review-uri
     Product(
       id: '1',
       imagePath: 'assests/sales_image_1.png',
@@ -33,8 +33,8 @@ class SampleProducts {
       id: '3',
       imagePath: 'assests/sales_image_3.png',
       saleLabel: '-30%',
-      rating: 4,
-      reviewCount: 25,
+      rating: 5,
+      reviewCount: 10,
       brandName: 'OVS',
       itemName: 'Blouse',
       oldPrice: 30,
@@ -43,12 +43,12 @@ class SampleProducts {
       isFavorite: false,
     ),
 
-    // New Products
+    // New Products: new_image_1, new_image_2, new_image_2 - toate cu 0 stele și 0 review-uri
     Product(
       id: '4',
-      imagePath: 'assests/sales_image_1.png',
-      rating: 5,
-      reviewCount: 3,
+      imagePath: 'assests/new_image_1.png',
+      rating: 0,
+      reviewCount: 0,
       brandName: 'Nike',
       itemName: 'Sportswear T-Shirt',
       oldPrice: 25,
@@ -58,9 +58,9 @@ class SampleProducts {
     ),
     Product(
       id: '5',
-      imagePath: 'assests/sales_image_2.png',
-      rating: 4,
-      reviewCount: 8,
+      imagePath: 'assests/new_image_2.png',
+      rating: 0,
+      reviewCount: 0,
       brandName: 'Adidas',
       itemName: 'Running Shoes',
       oldPrice: 89,
@@ -70,9 +70,9 @@ class SampleProducts {
     ),
     Product(
       id: '6',
-      imagePath: 'assests/sales_image_3.png',
-      rating: 5,
-      reviewCount: 15,
+      imagePath: 'assests/new_image_2.png',
+      rating: 0,
+      reviewCount: 0,
       brandName: 'Zara',
       itemName: 'Summer Jacket',
       oldPrice: 45,
@@ -81,7 +81,7 @@ class SampleProducts {
       isFavorite: false,
     ),
 
-    // Regular Products
+    // Regular Products (pentru "You may also like"): sales_image_1, new_image_2, new_image_2
     Product(
       id: '7',
       imagePath: 'assests/sales_image_1.png',
@@ -96,7 +96,7 @@ class SampleProducts {
     ),
     Product(
       id: '8',
-      imagePath: 'assests/sales_image_2.png',
+      imagePath: 'assests/new_image_2.png',
       rating: 5,
       reviewCount: 12,
       brandName: 'Mango',
@@ -105,6 +105,18 @@ class SampleProducts {
       newPrice: 28,
       isNew: false,
       isFavorite: true,
+    ),
+    Product(
+      id: '9',
+      imagePath: 'assests/new_image_2.png',
+      rating: 4,
+      reviewCount: 7,
+      brandName: 'Bershka',
+      itemName: 'Summer Top',
+      oldPrice: 18,
+      newPrice: 18,
+      isNew: false,
+      isFavorite: false,
     ),
   ];
 

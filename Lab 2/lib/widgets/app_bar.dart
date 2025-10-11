@@ -25,9 +25,10 @@ class CustomAppBar extends StatelessWidget {
               child: Container(
                 width: 24,
                 height: 24,
-                child: Image.network(
-                  "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/M1cILAB2gT/0sqjm4gd_expires_30_days.png",
-                  fit: BoxFit.fill,
+                child: Icon(
+                  Icons.arrow_back_ios,
+                  size: 18,
+                  color: Colors.black,
                 ),
               ),
             ),
@@ -45,9 +46,10 @@ class CustomAppBar extends StatelessWidget {
             Container(
               width: 24,
               height: 24,
-              child: Image.network(
-                "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/M1cILAB2gT/00naa2ty_expires_30_days.png",
-                fit: BoxFit.fill,
+              child: Icon(
+                Icons.share,
+                size: 18,
+                color: Colors.black,
               ),
             ),
           ],
