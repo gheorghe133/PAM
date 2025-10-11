@@ -28,8 +28,40 @@ class ProductCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Product Image with Sale Label and Favorite Button
-            _buildProductImage(),
+            Stack(
+              clipBehavior: Clip.none, // Permite butonului să depășească marginile
+              children: [
+                _buildProductImage(),
+                // Favorite Button (outside image container to allow overflow)
+                Positioned(
+                  bottom: -18, // Jumătate din înălțimea butonului (36px / 2 = 18px) sub marginea imaginii
+                  right: 0,
+                  child: Material(
+                    elevation: 4,
+                    shape: CircleBorder(),
+                    color: Colors.white,
+                    child: InkWell(
+                      onTap: onFavoritePressed,
+                      customBorder: CircleBorder(),
+                      child: Container(
+                        width: 36,
+                        height: 36,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                        ),
+                        child: Icon(
+                          product.isFavorite ? Icons.favorite : Icons.favorite_border,
+                          size: 20,
+                          color: product.isFavorite ? Colors.red : Colors.grey,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
 
+            // Spațiu normal între imagine și rating
             SizedBox(height: 8),
 
             // Rating
@@ -113,34 +145,7 @@ class ProductCard extends StatelessWidget {
               ),
             ),
 
-          // Favorite Button
-          Positioned(
-            bottom: -4,
-            right: 0,
-            child: GestureDetector(
-              onTap: onFavoritePressed,
-              child: Container(
-                width: 36,
-                height: 36,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  shape: BoxShape.circle,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
-                      blurRadius: 8,
-                      offset: Offset(0, 4),
-                    ),
-                  ],
-                ),
-                child: Icon(
-                  product.isFavorite ? Icons.favorite : Icons.favorite_border,
-                  size: 20,
-                  color: product.isFavorite ? Colors.red : Colors.grey,
-                ),
-              ),
-            ),
-          ),
+
         ],
       ),
     );
