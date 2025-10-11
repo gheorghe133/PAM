@@ -22,25 +22,19 @@ class RelatedProducts extends StatelessWidget {
                     width: double.infinity,
                     child: Text(
                       "You can also like this",
-                      style: TextStyle(
-                        color: Color(0xFF222222),
-                        fontSize: 18,
-                      ),
+                      style: TextStyle(color: Color(0xFF222222), fontSize: 18),
                     ),
                   ),
                 ),
                 Text(
                   "12 items",
-                  style: TextStyle(
-                    color: Color(0xFF9B9B9B),
-                    fontSize: 11,
-                  ),
+                  style: TextStyle(color: Color(0xFF9B9B9B), fontSize: 11),
                 ),
               ],
             ),
           ),
         ),
-        
+
         // Products horizontal scroll
         IntrinsicWidth(
           child: IntrinsicHeight(
@@ -58,11 +52,13 @@ class RelatedProducts extends StatelessWidget {
                       Container(
                         margin: const EdgeInsets.only(right: 12),
                         child: ProductCard(
-                          product: SampleProducts.allProducts[0], // ID '1' - primul de la Sales
+                          product: SampleProducts
+                              .allProducts[0], // ID '1' - primul de la Sales
                           width: 148,
                           height: 300,
                           onTap: () => print('Related product 1 tapped'),
-                          onFavoritePressed: () => print('Related product 1 favorite pressed'),
+                          onFavoritePressed: () =>
+                              print('Related product 1 favorite pressed'),
                         ),
                       ),
 
@@ -70,11 +66,13 @@ class RelatedProducts extends StatelessWidget {
                       Container(
                         margin: const EdgeInsets.only(right: 12),
                         child: ProductCard(
-                          product: SampleProducts.allProducts[4], // ID '5' - al doilea de la New
+                          product: SampleProducts
+                              .allProducts[4], // ID '5' - al doilea de la New
                           width: 148,
                           height: 300,
                           onTap: () => print('Related product 2 tapped'),
-                          onFavoritePressed: () => print('Related product 2 favorite pressed'),
+                          onFavoritePressed: () =>
+                              print('Related product 2 favorite pressed'),
                         ),
                       ),
 
@@ -82,11 +80,13 @@ class RelatedProducts extends StatelessWidget {
                       Container(
                         margin: const EdgeInsets.only(right: 12),
                         child: ProductCard(
-                          product: SampleProducts.allProducts[5], // ID '6' - al treilea de la New
+                          product: SampleProducts
+                              .allProducts[5], // ID '6' - al treilea de la New
                           width: 148,
                           height: 300,
                           onTap: () => print('Related product 3 tapped'),
-                          onFavoritePressed: () => print('Related product 3 favorite pressed'),
+                          onFavoritePressed: () =>
+                              print('Related product 3 favorite pressed'),
                         ),
                       ),
                     ],
