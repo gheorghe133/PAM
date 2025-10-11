@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF9F9F9),
+      backgroundColor: Colors.white, // Background alb
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -26,9 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
             // Hero Section
             StreetClothesHeroSection(),
 
-            SizedBox(height: 20),
-
-            // Sales Section
+            // Sales Section (lipită direct de hero)
             SalesSection(
               products: products,
               onViewAllPressed: () => _onViewAllPressed('Sale'),
@@ -36,17 +34,13 @@ class _HomeScreenState extends State<HomeScreen> {
               onFavoritePressed: _onFavoritePressed,
             ),
 
-            SizedBox(height: 20),
-
-            // New Section
+            // New Section (lipită direct de sales)
             NewSection(
               products: products,
               onViewAllPressed: () => _onViewAllPressed('New'),
               onProductTap: _onProductTap,
               onFavoritePressed: _onFavoritePressed,
             ),
-
-            SizedBox(height: 20),
           ],
         ),
       ),

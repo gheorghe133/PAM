@@ -29,12 +29,14 @@ class ProductCard extends StatelessWidget {
           children: [
             // Product Image with Sale Label and Favorite Button
             Stack(
-              clipBehavior: Clip.none, // Permite butonului să depășească marginile
+              clipBehavior:
+                  Clip.none, // Permite butonului să depășească marginile
               children: [
                 _buildProductImage(),
                 // Favorite Button (outside image container to allow overflow)
                 Positioned(
-                  bottom: -18, // Jumătate din înălțimea butonului (36px / 2 = 18px) sub marginea imaginii
+                  bottom:
+                      -18, // Jumătate din înălțimea butonului (36px / 2 = 18px) sub marginea imaginii
                   right: 0,
                   child: Material(
                     elevation: 4,
@@ -46,11 +48,11 @@ class ProductCard extends StatelessWidget {
                       child: Container(
                         width: 36,
                         height: 36,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                        ),
+                        decoration: BoxDecoration(shape: BoxShape.circle),
                         child: Icon(
-                          product.isFavorite ? Icons.favorite : Icons.favorite_border,
+                          product.isFavorite
+                              ? Icons.favorite
+                              : Icons.favorite_border,
                           size: 20,
                           color: product.isFavorite ? Colors.red : Colors.grey,
                         ),
@@ -144,8 +146,6 @@ class ProductCard extends StatelessWidget {
                 ),
               ),
             ),
-
-
         ],
       ),
     );

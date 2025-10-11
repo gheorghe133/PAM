@@ -22,7 +22,7 @@ class ProductSection extends StatelessWidget {
     this.onViewAllPressed,
     this.onProductTap,
     this.onFavoritePressed,
-    this.padding = const EdgeInsets.all(16),
+    this.padding = const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
     this.height = 300,
   }) : super(key: key);
 
@@ -37,7 +37,7 @@ class ProductSection extends StatelessWidget {
           // Section Header
           _buildSectionHeader(),
 
-          SizedBox(height: 20),
+          SizedBox(height: 12),
 
           // Product Cards
           _buildProductList(),
