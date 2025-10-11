@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import '../models/product.dart';
+import '../data/sample_products.dart';
+import 'product_card.dart';
 
 class RelatedProducts extends StatelessWidget {
   const RelatedProducts({Key? key}) : super(key: key);
@@ -51,14 +54,41 @@ class RelatedProducts extends StatelessWidget {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // First product (Sale item)
-                      _buildSaleProduct(),
+                      // First product - primul card de la Sales (ID '1')
+                      Container(
+                        margin: const EdgeInsets.only(right: 12),
+                        child: ProductCard(
+                          product: SampleProducts.allProducts[0], // ID '1' - primul de la Sales
+                          width: 148,
+                          height: 300,
+                          onTap: () => print('Related product 1 tapped'),
+                          onFavoritePressed: () => print('Related product 1 favorite pressed'),
+                        ),
+                      ),
 
-                      // Second product (New item)
-                      _buildNewProduct(),
+                      // Second product - al doilea card de la New (ID '5')
+                      Container(
+                        margin: const EdgeInsets.only(right: 12),
+                        child: ProductCard(
+                          product: SampleProducts.allProducts[4], // ID '5' - al doilea de la New
+                          width: 148,
+                          height: 300,
+                          onTap: () => print('Related product 2 tapped'),
+                          onFavoritePressed: () => print('Related product 2 favorite pressed'),
+                        ),
+                      ),
 
-                      // Third product (New item)
-                      _buildNewProduct(),
+                      // Third product - al treilea card de la New (ID '6')
+                      Container(
+                        margin: const EdgeInsets.only(right: 12),
+                        child: ProductCard(
+                          product: SampleProducts.allProducts[5], // ID '6' - al treilea de la New
+                          width: 148,
+                          height: 300,
+                          onTap: () => print('Related product 3 tapped'),
+                          onFavoritePressed: () => print('Related product 3 favorite pressed'),
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -67,389 +97,6 @@ class RelatedProducts extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-
-  Widget _buildSaleProduct() {
-    return IntrinsicWidth(
-      child: IntrinsicHeight(
-        child: Container(
-          margin: const EdgeInsets.only(right: 12),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Product image with sale badge
-              IntrinsicWidth(
-                child: IntrinsicHeight(
-                  child: Container(
-                    margin: const EdgeInsets.only(bottom: 7, left: 1, right: 1),
-                    child: Stack(
-                      clipBehavior: Clip.none,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            IntrinsicWidth(
-                              child: IntrinsicHeight(
-                                child: Container(
-                                  padding: const EdgeInsets.only(top: 8, bottom: 152, left: 9, right: 99),
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: AssetImage('assests/sales_image_1.png'),
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      // Sale badge
-                                      InkWell(
-                                        onTap: () => print('Sale badge pressed'),
-                                        child: IntrinsicWidth(
-                                          child: IntrinsicHeight(
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                borderRadius: BorderRadius.circular(29),
-                                                color: Color(0xFFDB3022),
-                                              ),
-                                              padding: const EdgeInsets.only(top: 7, bottom: 7, left: 6, right: 6),
-                                              child: Column(
-                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    "-20%",
-                                                    style: TextStyle(
-                                                      color: Color(0xFFFFFFFF),
-                                                      fontSize: 11,
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        // Favorite button
-                        Positioned(
-                          bottom: 0,
-                          right: 0,
-                          width: 36,
-                          height: 36,
-                          child: Container(
-                            transform: Matrix4.translationValues(0, 16, 0),
-                            width: 36,
-                            height: 36,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              shape: BoxShape.circle,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Color(0x14000000),
-                                  blurRadius: 4,
-                                  offset: Offset(0, 4),
-                                ),
-                              ],
-                            ),
-                            child: Icon(
-                              Icons.favorite_border,
-                              size: 24,
-                              color: Color(0xFF9B9B9B),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              
-              // Rating stars (5/5 pentru sales)
-              _buildRatingStars(rating: 5, reviewCount: 10),
-              
-              // Brand name
-              Container(
-                margin: const EdgeInsets.only(bottom: 5, left: 1, right: 65),
-                child: Text(
-                  "Dorothy Perkins",
-                  style: TextStyle(
-                    color: Color(0xFF9B9B9B),
-                    fontSize: 11,
-                  ),
-                ),
-              ),
-              
-              // Product name
-              Container(
-                margin: const EdgeInsets.only(bottom: 3, left: 1, right: 39),
-                child: Text(
-                  "Evening Dress",
-                  style: TextStyle(
-                    color: Color(0xFF222222),
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-              
-              // Price with strikethrough
-              IntrinsicWidth(
-                child: IntrinsicHeight(
-                  child: Container(
-                    margin: const EdgeInsets.only(left: 2),
-                    child: Row(
-                      children: [
-                        IntrinsicWidth(
-                          child: IntrinsicHeight(
-                            child: Container(
-                              margin: const EdgeInsets.only(right: 6),
-                              child: Stack(
-                                clipBehavior: Clip.none,
-                                children: [
-                                  Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "15\$",
-                                        style: TextStyle(
-                                          color: Color(0xFF9B9B9B),
-                                          fontSize: 14,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Positioned(
-                                    top: 9,
-                                    left: 0,
-                                    right: 0,
-                                    height: 1,
-                                    child: Container(
-                                      color: Color(0xFF9B9B9B),
-                                      width: 23,
-                                      height: 1,
-                                      child: SizedBox(),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        Text(
-                          "12\$",
-                          style: TextStyle(
-                            color: Color(0xFFDB3022),
-                            fontSize: 14,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildNewProduct() {
-    return IntrinsicWidth(
-      child: IntrinsicHeight(
-        child: Container(
-          margin: const EdgeInsets.only(right: 12),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Product image with NEW badge
-              IntrinsicWidth(
-                child: IntrinsicHeight(
-                  child: Container(
-                    margin: const EdgeInsets.only(bottom: 6),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        IntrinsicWidth(
-                          child: IntrinsicHeight(
-                            child: Container(
-                              margin: const EdgeInsets.only(bottom: 7, left: 1, right: 1),
-                              child: Stack(
-                                clipBehavior: Clip.none,
-                                children: [
-                                  Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      IntrinsicWidth(
-                                        child: IntrinsicHeight(
-                                          child: Container(
-                                            padding: const EdgeInsets.only(top: 8, bottom: 152, left: 9, right: 99),
-                                            decoration: BoxDecoration(
-                                              image: DecorationImage(
-                                                image: AssetImage('assests/new_image_2.png'),
-                                                fit: BoxFit.cover,
-                                              ),
-                                            ),
-                                            child: Column(
-                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                              children: [
-                                                // NEW badge
-                                                InkWell(
-                                                  onTap: () => print('NEW badge pressed'),
-                                                  child: IntrinsicWidth(
-                                                    child: IntrinsicHeight(
-                                                      child: Container(
-                                                        decoration: BoxDecoration(
-                                                          borderRadius: BorderRadius.circular(29),
-                                                          color: Color(0xFF222222),
-                                                        ),
-                                                        padding: const EdgeInsets.only(top: 7, bottom: 7, left: 6, right: 6),
-                                                        child: Column(
-                                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                                          children: [
-                                                            Text(
-                                                              "NEW",
-                                                              style: TextStyle(
-                                                                color: Color(0xFFFFFFFF),
-                                                                fontSize: 11,
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  // Favorite button
-                                  Positioned(
-                                    bottom: 0,
-                                    right: 0,
-                                    width: 36,
-                                    height: 36,
-                                    child: Container(
-                                      transform: Matrix4.translationValues(0, 16, 0),
-                                      width: 36,
-                                      height: 36,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        shape: BoxShape.circle,
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Color(0x14000000),
-                                            blurRadius: 4,
-                                            offset: Offset(0, 4),
-                                          ),
-                                        ],
-                                      ),
-                                      child: Icon(
-                                        Icons.favorite_border,
-                                        size: 24,
-                                        color: Color(0xFF9B9B9B),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-
-                        // Rating stars (0/5 pentru new)
-                        _buildRatingStars(rating: 0, reviewCount: 0),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-
-              // Brand name
-              Container(
-                margin: const EdgeInsets.only(bottom: 5, left: 1, right: 90),
-                child: Text(
-                  "Mango Boy",
-                  style: TextStyle(
-                    color: Color(0xFF9B9B9B),
-                    fontSize: 11,
-                  ),
-                ),
-              ),
-
-              // Product name
-              Container(
-                margin: const EdgeInsets.only(bottom: 3, left: 1, right: 42),
-                child: Text(
-                  "T-Shirt Sailing",
-                  style: TextStyle(
-                    color: Color(0xFF222222),
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-
-              // Price
-              Container(
-                margin: const EdgeInsets.only(left: 2, right: 125),
-                child: Text(
-                  "10\$",
-                  style: TextStyle(
-                    color: Color(0xFF222222),
-                    fontSize: 14,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildRatingStars({required int rating, required int reviewCount}) {
-    return IntrinsicWidth(
-      child: IntrinsicHeight(
-        child: Container(
-          margin: const EdgeInsets.only(bottom: 6),
-          child: Row(
-            children: [
-              // Stars
-              ...List.generate(5, (index) => Container(
-                margin: const EdgeInsets.only(right: 1),
-                width: 14,
-                height: 14,
-                child: Icon(
-                  Icons.star,
-                  size: 14,
-                  color: index < rating ? Color(0xFFFFBA49) : Color(0xFFE0E0E0),
-                ),
-              )),
-
-              // Review count
-              Container(
-                margin: const EdgeInsets.only(left: 2),
-                child: Text(
-                  "($reviewCount)",
-                  style: TextStyle(
-                    color: Color(0xFF9B9B9B),
-                    fontSize: 10,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
     );
   }
 }

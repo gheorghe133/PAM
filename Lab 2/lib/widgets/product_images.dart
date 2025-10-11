@@ -111,55 +111,34 @@ class ProductImages extends StatelessWidget {
             width: double.infinity,
             height:
                 400, // Reduced height since status bar and app bar are separate
-            child: Stack(
-              children: [
-                // Main large image background
-                Positioned.fill(
-                  child: Row(
-                    children: [
-                      // Main image area
-                      Expanded(
-                        flex: 3,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage('assests/product_image_1.png'),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                      ),
-                      // Thumbnail area
-                      Expanded(
-                        flex: 1,
-                        child: Container(
-                          margin: const EdgeInsets.only(left: 4),
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage('assests/product_image_2.png'),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-                // Bottom indicator bar
-                Positioned(
-                  bottom: 16,
-                  left: 16,
-                  child: Container(
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  // First image - 75% of screen width
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.75,
+                    height: 400,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(4),
-                      color: Color(0xFF222222),
+                      image: DecorationImage(
+                        image: AssetImage('assests/product_image_1.png'),
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                    width: 125,
-                    height: 3,
                   ),
-                ),
-              ],
+                  // Second image - full screen width (25% visible initially, rest on scroll)
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 400,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assests/product_image_2.png'),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

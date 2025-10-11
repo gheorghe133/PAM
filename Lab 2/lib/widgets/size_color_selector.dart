@@ -32,8 +32,8 @@ class SizeColorSelector extends StatelessWidget {
                     color: Color(0xFFFFFFFF),
                   ),
                   padding: const EdgeInsets.only(
-                    top: 10,
-                    bottom: 10,
+                    top: 6,
+                    bottom: 6,
                     left: 12,
                     right: 8,
                   ),
@@ -83,8 +83,8 @@ class SizeColorSelector extends StatelessWidget {
                     color: Color(0xFFFFFFFF),
                   ),
                   padding: const EdgeInsets.only(
-                    top: 10,
-                    bottom: 10,
+                    top: 6,
+                    bottom: 6,
                     left: 12,
                     right: 8,
                   ),
