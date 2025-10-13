@@ -37,7 +37,7 @@ class ProductSection extends StatelessWidget {
           // Section Header
           _buildSectionHeader(),
 
-          SizedBox(height: 12),
+          SizedBox(height: 15),
 
           // Product Cards
           _buildProductList(),

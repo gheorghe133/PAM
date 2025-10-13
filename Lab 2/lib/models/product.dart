@@ -32,11 +32,6 @@ class Product {
 
   String get formattedNewPrice => '${newPrice.toStringAsFixed(0)}\$';
 
-  double get discountPercentage {
-    if (oldPrice <= 0) return 0;
-    return ((oldPrice - newPrice) / oldPrice * 100);
-  }
-
   // Copy with method for state updates
   Product copyWith({
     String? id,

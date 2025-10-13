@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
             // Hero Section
             StreetClothesHeroSection(),
 
-            // Sales Section (lipită direct de hero)
+            // Sales Section
             SalesSection(
               products: products,
               onViewAllPressed: () => _onViewAllPressed('Sale'),
@@ -34,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
               onFavoritePressed: _onFavoritePressed,
             ),
 
-            // New Section (lipită direct de sales)
+            // New Section
             NewSection(
               products: products,
               onViewAllPressed: () => _onViewAllPressed('New'),

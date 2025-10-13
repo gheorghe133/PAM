@@ -21,7 +21,11 @@ class RelatedProducts extends StatelessWidget {
                     width: double.infinity,
                     child: Text(
                       "You can also like this",
-                      style: TextStyle(color: Color(0xFF222222), fontSize: 18),
+                      style: TextStyle(
+                        color: Color(0xFF222222),
+                        fontSize: 18,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                   ),
                 ),

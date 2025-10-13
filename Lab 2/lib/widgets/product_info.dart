@@ -24,6 +24,7 @@ class ProductInfo extends StatelessWidget {
                       style: TextStyle(
                         color: Color(0xFF222222),
                         fontSize: 24,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                   ),
@@ -36,6 +37,7 @@ class ProductInfo extends StatelessWidget {
                       style: TextStyle(
                         color: Color(0xFF222222),
                         fontSize: 24,
+                        fontWeight: FontWeight.w400,
                       ),
                       textAlign: TextAlign.right,
                     ),
@@ -45,7 +47,7 @@ class ProductInfo extends StatelessWidget {
             ),
           ),
         ),
-        
+
         // Product Name
         Container(
           margin: const EdgeInsets.only(bottom: 8, left: 16, right: 269),
@@ -54,10 +56,11 @@ class ProductInfo extends StatelessWidget {
             style: TextStyle(
               color: Color(0xFF9B9B9B),
               fontSize: 11,
+              fontWeight: FontWeight.w400,
             ),
           ),
         ),
-        
+
         // Rating Stars
         IntrinsicWidth(
           child: IntrinsicHeight(
@@ -66,26 +69,26 @@ class ProductInfo extends StatelessWidget {
               child: Row(
                 children: [
                   // 5 Stars
-                  ...List.generate(5, (index) => Container(
-                    margin: const EdgeInsets.only(right: 1),
-                    width: 14,
-                    height: 14,
-                    child: Icon(
-                      Icons.star,
-                      size: 14,
-                      color: Color(0xFFFFBA49),
+                  ...List.generate(
+                    5,
+                    (index) => Container(
+                      margin: const EdgeInsets.only(right: 1),
+                      width: 14,
+                      height: 14,
+                      child: Icon(
+                        Icons.star,
+                        size: 14,
+                        color: Color(0xFFFFBA49),
+                      ),
                     ),
-                  )),
-                  
+                  ),
+
                   // Review count
                   Container(
                     margin: const EdgeInsets.only(left: 2),
                     child: Text(
                       "(10)",
-                      style: TextStyle(
-                        color: Color(0xFF9B9B9B),
-                        fontSize: 10,
-                      ),
+                      style: TextStyle(color: Color(0xFF9B9B9B), fontSize: 10),
                     ),
                   ),
                 ],

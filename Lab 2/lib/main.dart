@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Street Clothes',
       theme: ThemeData(
-        fontFamily: 'SF Pro Display',
+        fontFamily: 'Metropolis',
         useMaterial3: true,
         scaffoldBackgroundColor: Colors.white,
       ),
