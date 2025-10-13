@@ -1,24 +1,55 @@
 import 'package:flutter/material.dart';
-import '../data/sample_products.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../bloc/bloc.dart';
+import '../models/product.dart';
+import '../screens/product_detail_screen.dart';
 import 'product_card.dart';
 
 class RelatedProducts extends StatelessWidget {
-  const RelatedProducts({Key? key}) : super(key: key);
+  const RelatedProducts({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        // Section header
-        IntrinsicHeight(
-          child: Container(
-            margin: const EdgeInsets.only(bottom: 12, left: 16, right: 16),
-            width: double.infinity,
-            child: Row(
-              children: [
-                Expanded(
-                  child: Container(
-                    width: double.infinity,
+    return BlocBuilder<ProductBloc, ProductState>(
+      builder: (context, state) {
+        List<Product> products = [];
+
+        // Extract products from current state
+        if (state is ProductLoaded) {
+          products = state.allProducts;
+        } else if (state is ProductSelected) {
+          products = state.allProducts;
+        }
+
+        // Show specific products as before: Sales ID '1', New ID '5', New ID '5'
+        final relatedProducts = <Product>[];
+
+        // First product - Sales (ID '1')
+        final salesProduct = products.firstWhere(
+          (p) => p.id == '1',
+          orElse: () => products.isNotEmpty ? products[0] : products.first,
+        );
+        relatedProducts.add(salesProduct);
+
+        // Second product - New (ID '5')
+        final newProduct = products.firstWhere(
+          (p) => p.id == '5',
+          orElse: () => products.length > 4 ? products[4] : products.last,
+        );
+        relatedProducts.add(newProduct);
+
+        // Third product - same as second (ID '5')
+        relatedProducts.add(newProduct);
+
+        return Column(
+          children: [
+            // Section header
+            Container(
+              margin: const EdgeInsets.only(bottom: 12, left: 16, right: 16),
+              width: double.infinity,
+              child: Row(
+                children: [
+                  Expanded(
                     child: Text(
                       "You can also like this",
                       style: TextStyle(
@@ -28,87 +59,64 @@ class RelatedProducts extends StatelessWidget {
                       ),
                     ),
                   ),
-                ),
-                Text(
-                  "12 items",
-                  style: TextStyle(color: Color(0xFF9B9B9B), fontSize: 11),
-                ),
-              ],
-            ),
-          ),
-        ),
-
-        // Products horizontal scroll
-        IntrinsicWidth(
-          child: IntrinsicHeight(
-            child: Container(
-              margin: const EdgeInsets.only(bottom: 101),
-              width: double.infinity,
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 16),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      // First product - primul card de la Sales (ID '1')
-                      Container(
-                        margin: const EdgeInsets.only(right: 12),
-                        child: ProductCard(
-                          product: SampleProducts
-                              .allProducts[0], // ID '1' - primul de la Sales
-                          width: 148,
-                          height: 300,
-                          onTap: () {
-                            // Navigate to product detail page
-                          },
-                          onFavoritePressed: () {
-                            // Toggle favorite status
-                          },
-                        ),
-                      ),
-
-                      // Second product - al doilea card de la New (ID '5')
-                      Container(
-                        margin: const EdgeInsets.only(right: 12),
-                        child: ProductCard(
-                          product: SampleProducts
-                              .allProducts[4], // ID '5' - al doilea de la New
-                          width: 148,
-                          height: 300,
-                          onTap: () {
-                            // Navigate to product detail page
-                          },
-                          onFavoritePressed: () {
-                            // Toggle favorite status
-                          },
-                        ),
-                      ),
-
-                      // Third product - același ca al doilea (ID '5')
-                      Container(
-                        margin: const EdgeInsets.only(right: 12),
-                        child: ProductCard(
-                          product: SampleProducts
-                              .allProducts[4], // ID '5' - același ca al doilea
-                          width: 148,
-                          height: 300,
-                          onTap: () {
-                            // Navigate to product detail page
-                          },
-                          onFavoritePressed: () {
-                            // Toggle favorite status
-                          },
-                        ),
-                      ),
-                    ],
+                  Text(
+                    "12 items", // Hardcoded as before
+                    style: TextStyle(color: Color(0xFF9B9B9B), fontSize: 11),
                   ),
-                ),
+                ],
               ),
             ),
-          ),
-        ),
-      ],
+
+            // Products horizontal scroll
+            Container(
+              margin: const EdgeInsets.only(bottom: 101),
+              width: double.infinity,
+              height: 300,
+              child: relatedProducts.isEmpty
+                  ? Center(
+                      child: Text(
+                        "No related products available",
+                        style: TextStyle(
+                          color: Color(0xFF9B9B9B),
+                          fontSize: 16,
+                        ),
+                      ),
+                    )
+                  : ListView.separated(
+                      scrollDirection: Axis.horizontal,
+                      padding: const EdgeInsets.only(left: 16, right: 16),
+                      itemCount: relatedProducts.length,
+                      separatorBuilder: (context, index) =>
+                          const SizedBox(width: 12),
+                      itemBuilder: (context, index) {
+                        final product = relatedProducts[index];
+                        return ProductCard(
+                          product: product,
+                          width: 148,
+                          height: 300,
+                          onTap: () {
+                            // Navigate to product detail page
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    ProductDetailScreen(productId: product.id),
+                              ),
+                            );
+                          },
+                          onFavoritePressed: () {
+                            // Toggle favorite status
+                            context.read<ProductBloc>().add(
+                              ToggleFavorite(product.id),
+                            );
+                          },
+                        );
+                      },
+                    ),
+            ),
+          ],
+        );
+      },
     );
   }
 }

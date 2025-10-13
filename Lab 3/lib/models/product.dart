@@ -7,6 +7,7 @@ part 'product.g.dart';
 class Product extends Equatable {
   final String id;
   final String imagePath;
+  final List<String>? detailImages;
   final String? saleLabel;
   final double rating;
   final int reviewCount;
@@ -16,10 +17,15 @@ class Product extends Equatable {
   final double newPrice;
   final bool isNew;
   final bool isFavorite;
+  final String? description;
+  final String? detailTitle;
+  final String? detailBrand;
+  final String? detailPrice;
 
   const Product({
     required this.id,
     required this.imagePath,
+    this.detailImages,
     this.saleLabel,
     required this.rating,
     required this.reviewCount,
@@ -29,6 +35,10 @@ class Product extends Equatable {
     required this.newPrice,
     this.isNew = false,
     this.isFavorite = false,
+    this.description,
+    this.detailTitle,
+    this.detailBrand,
+    this.detailPrice,
   });
 
   // Helper getters
@@ -42,6 +52,7 @@ class Product extends Equatable {
   Product copyWith({
     String? id,
     String? imagePath,
+    List<String>? detailImages,
     String? saleLabel,
     double? rating,
     int? reviewCount,
@@ -51,10 +62,15 @@ class Product extends Equatable {
     double? newPrice,
     bool? isNew,
     bool? isFavorite,
+    String? description,
+    String? detailTitle,
+    String? detailBrand,
+    String? detailPrice,
   }) {
     return Product(
       id: id ?? this.id,
       imagePath: imagePath ?? this.imagePath,
+      detailImages: detailImages ?? this.detailImages,
       saleLabel: saleLabel ?? this.saleLabel,
       rating: rating ?? this.rating,
       reviewCount: reviewCount ?? this.reviewCount,
@@ -64,6 +80,10 @@ class Product extends Equatable {
       newPrice: newPrice ?? this.newPrice,
       isNew: isNew ?? this.isNew,
       isFavorite: isFavorite ?? this.isFavorite,
+      description: description ?? this.description,
+      detailTitle: detailTitle ?? this.detailTitle,
+      detailBrand: detailBrand ?? this.detailBrand,
+      detailPrice: detailPrice ?? this.detailPrice,
     );
   }
 
@@ -77,6 +97,7 @@ class Product extends Equatable {
   List<Object?> get props => [
     id,
     imagePath,
+    detailImages,
     saleLabel,
     rating,
     reviewCount,
@@ -86,5 +107,9 @@ class Product extends Equatable {
     newPrice,
     isNew,
     isFavorite,
+    description,
+    detailTitle,
+    detailBrand,
+    detailPrice,
   ];
 }

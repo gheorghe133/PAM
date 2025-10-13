@@ -9,12 +9,12 @@ class CustomStatusBar extends StatelessWidget {
   final Widget child;
 
   const CustomStatusBar({
-    Key? key,
+    super.key,
     this.backgroundColor = Colors.white,
     this.foregroundColor = Colors.black,
     this.brightness = Brightness.light,
     required this.child,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -149,7 +149,7 @@ class StatusBarContent extends StatelessWidget {
   final EdgeInsets padding;
 
   const StatusBarContent({
-    Key? key,
+    super.key,
     this.backgroundColor = const Color(0xFFF9F9F9),
     this.textColor = Colors.black,
     this.padding = const EdgeInsets.only(
@@ -158,7 +158,7 @@ class StatusBarContent extends StatelessWidget {
       left: 21,
       right: 21,
     ),
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

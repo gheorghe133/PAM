@@ -106,27 +106,38 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
     Emitter<ProductState> emit,
   ) async {
     try {
+      // Show loading only if we're refreshing an already selected product
+      bool isRefresh = state is ProductSelected &&
+                      (state as ProductSelected).product.id == event.productId;
+
+      if (isRefresh) {
+        emit(const ProductLoading());
+      }
+
       // First ensure we have all products loaded
       List<Product> allProducts;
 
-      if (state is ProductLoaded) {
-        allProducts = (state as ProductLoaded).allProducts;
+      if (state is ProductLoaded || state is ProductSelected) {
+        // Extract allProducts from current state
+        allProducts = state is ProductLoaded
+            ? (state as ProductLoaded).allProducts
+            : (state as ProductSelected).allProducts;
       } else {
         // Load all products if not already loaded
-        emit(const ProductLoading());
+        if (!isRefresh) {
+          emit(const ProductLoading());
+        }
         allProducts = await _repository.loadProducts();
       }
 
       // Find the specific product
       final product = allProducts.firstWhere(
         (p) => p.id == event.productId,
-        orElse: () => throw Exception('Product with ID ${event.productId} not found'),
+        orElse: () =>
+            throw Exception('Product with ID ${event.productId} not found'),
       );
 
-      emit(ProductSelected(
-        product: product,
-        allProducts: allProducts,
-      ));
+      emit(ProductSelected(product: product, allProducts: allProducts));
     } catch (e) {
       emit(ProductError('Failed to load product: $e'));
     }
