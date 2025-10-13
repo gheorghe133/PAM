@@ -25,6 +25,12 @@ Product _$ProductFromJson(Map<String, dynamic> json) => Product(
   detailTitle: json['detailTitle'] as String?,
   detailBrand: json['detailBrand'] as String?,
   detailPrice: json['detailPrice'] as String?,
+  defaultSize: json['defaultSize'] as String?,
+  defaultColor: json['defaultColor'] as String?,
+  addToCartText: json['addToCartText'] as String?,
+  relatedSectionTitle: json['relatedSectionTitle'] as String?,
+  relatedItemsCount: json['relatedItemsCount'] as String?,
+  expandableSections: json['expandableSections'] as Map<String, dynamic>?,
 );
 
 Map<String, dynamic> _$ProductToJson(Product instance) => <String, dynamic>{
@@ -44,4 +50,10 @@ Map<String, dynamic> _$ProductToJson(Product instance) => <String, dynamic>{
   'detailTitle': instance.detailTitle,
   'detailBrand': instance.detailBrand,
   'detailPrice': instance.detailPrice,
+  'defaultSize': instance.defaultSize,
+  'defaultColor': instance.defaultColor,
+  'addToCartText': instance.addToCartText,
+  'relatedSectionTitle': instance.relatedSectionTitle,
+  'relatedItemsCount': instance.relatedItemsCount,
+  'expandableSections': instance.expandableSections,
 };

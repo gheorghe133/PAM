@@ -24,6 +24,13 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   String selectedSize = 'Size';
   String selectedColor = 'Black';
 
+  void _updateDefaultValues(Product product) {
+    setState(() {
+      selectedSize = product.defaultSize ?? 'Size';
+      selectedColor = product.defaultColor ?? 'Black';
+    });
+  }
+
   @override
   void initState() {
     super.initState();

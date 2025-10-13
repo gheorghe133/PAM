@@ -19,7 +19,17 @@
       "description": "Short dress in soft cotton jersey with decorative buttons down the front and a wide, frill-trimmed square neckline with concealed elastication. Elasticated seam under the bust and short puff sleeves with a small frill trim.",
       "detailTitle": "Short dress",
       "detailBrand": "H&M",
-      "detailPrice": "19.99$"
+      "detailPrice": "19.99$",
+      "defaultSize": "Size",
+      "defaultColor": "Black",
+      "addToCartText": "ADD TO CART",
+      "relatedSectionTitle": "You can also like this",
+      "relatedItemsCount": "12 items",
+      "expandableSections": {
+        "itemDetails": "Item details",
+        "shippingInfo": "Shipping info",
+        "support": "Support"
+      }
     },
     {
       "id": "2",

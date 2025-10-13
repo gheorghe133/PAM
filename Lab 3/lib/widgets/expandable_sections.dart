@@ -1,68 +1,90 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../bloc/bloc.dart';
 
 class ExpandableSections extends StatelessWidget {
-  const ExpandableSections({Key? key}) : super(key: key);
+  const ExpandableSections({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        // Separator line
-        Container(
-          color: Color(0xFFE5E5E5),
-          margin: const EdgeInsets.only(bottom: 12),
-          height: 1,
-          width: double.infinity,
-        ),
+    return BlocBuilder<ProductBloc, ProductState>(
+      builder: (context, state) {
+        Map<String, String> sections = {
+          'itemDetails': 'Item details',
+          'shippingInfo': 'Shipping info',
+          'support': 'Support',
+        };
 
-        // Item details section
-        _buildExpandableSection(
-          title: "Item details",
-          onTap: () {
-            // Expand item details section
-          },
-        ),
+        if (state is ProductSelected &&
+            state.product.expandableSections != null) {
+          final productSections = state.product.expandableSections!;
+          sections = {
+            'itemDetails': productSections['itemDetails'] ?? 'Item details',
+            'shippingInfo': productSections['shippingInfo'] ?? 'Shipping info',
+            'support': productSections['support'] ?? 'Support',
+          };
+        }
 
-        // Separator line
-        Container(
-          color: Color(0xFFE5E5E5),
-          margin: const EdgeInsets.only(bottom: 12),
-          height: 1,
-          width: double.infinity,
-        ),
+        return Column(
+          children: [
+            // Separator line
+            Container(
+              color: Color(0xFFE5E5E5),
+              margin: const EdgeInsets.only(bottom: 12),
+              height: 1,
+              width: double.infinity,
+            ),
 
-        // Shipping info section
-        _buildExpandableSection(
-          title: "Shipping info",
-          onTap: () {
-            // Expand shipping info section
-          },
-        ),
+            // Item details section
+            _buildExpandableSection(
+              title: sections['itemDetails']!,
+              onTap: () {
+                // Expand item details section
+              },
+            ),
 
-        // Separator line
-        Container(
-          color: Color(0xFFE5E5E5),
-          margin: const EdgeInsets.only(bottom: 12),
-          height: 1,
-          width: double.infinity,
-        ),
+            // Separator line
+            Container(
+              color: Color(0xFFE5E5E5),
+              margin: const EdgeInsets.only(bottom: 12),
+              height: 1,
+              width: double.infinity,
+            ),
 
-        // Support section
-        _buildExpandableSection(
-          title: "Support",
-          onTap: () {
-            // Expand support section
-          },
-        ),
+            // Shipping info section
+            _buildExpandableSection(
+              title: sections['shippingInfo']!,
+              onTap: () {
+                // Expand shipping info section
+              },
+            ),
 
-        // Separator line
-        Container(
-          color: Color(0xFFE5E5E5),
-          margin: const EdgeInsets.only(bottom: 20),
-          height: 1,
-          width: double.infinity,
-        ),
-      ],
+            // Separator line
+            Container(
+              color: Color(0xFFE5E5E5),
+              margin: const EdgeInsets.only(bottom: 12),
+              height: 1,
+              width: double.infinity,
+            ),
+
+            // Support section
+            _buildExpandableSection(
+              title: sections['support']!,
+              onTap: () {
+                // Expand support section
+              },
+            ),
+
+            // Separator line
+            Container(
+              color: Color(0xFFE5E5E5),
+              margin: const EdgeInsets.only(bottom: 20),
+              height: 1,
+              width: double.infinity,
+            ),
+          ],
+        );
+      },
     );
   }
 

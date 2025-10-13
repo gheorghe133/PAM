@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../bloc/bloc.dart';
 
 class AddToCart extends StatelessWidget {
   final VoidCallback? onAddToCart;
 
-  const AddToCart({
-    Key? key,
-    this.onAddToCart,
-  }) : super(key: key);
+  const AddToCart({super.key, this.onAddToCart});
 
   @override
   Widget build(BuildContext context) {
@@ -30,13 +29,22 @@ class AddToCart extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 14),
           width: double.infinity,
           child: Center(
-            child: Text(
-              "ADD TO CART",
-              style: TextStyle(
-                color: Color(0xFFFFFFFF),
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-              ),
+            child: BlocBuilder<ProductBloc, ProductState>(
+              builder: (context, state) {
+                String buttonText = "ADD TO CART";
+                if (state is ProductSelected) {
+                  buttonText = state.product.addToCartText ?? "ADD TO CART";
+                }
+
+                return Text(
+                  buttonText,
+                  style: TextStyle(
+                    color: Color(0xFFFFFFFF),
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                  ),
+                );
+              },
             ),
           ),
         ),

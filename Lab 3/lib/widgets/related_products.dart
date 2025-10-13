@@ -51,7 +51,9 @@ class RelatedProducts extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Text(
-                      "You can also like this",
+                      relatedProducts.isNotEmpty
+                          ? (relatedProducts.first.relatedSectionTitle ?? "You can also like this")
+                          : "You can also like this",
                       style: TextStyle(
                         color: Color(0xFF222222),
                         fontSize: 18,
@@ -60,7 +62,9 @@ class RelatedProducts extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "12 items", // Hardcoded as before
+                    relatedProducts.isNotEmpty
+                        ? (relatedProducts.first.relatedItemsCount ?? "12 items")
+                        : "12 items",
                     style: TextStyle(color: Color(0xFF9B9B9B), fontSize: 11),
                   ),
                 ],

@@ -21,6 +21,12 @@ class Product extends Equatable {
   final String? detailTitle;
   final String? detailBrand;
   final String? detailPrice;
+  final String? defaultSize;
+  final String? defaultColor;
+  final String? addToCartText;
+  final String? relatedSectionTitle;
+  final String? relatedItemsCount;
+  final Map<String, dynamic>? expandableSections;
 
   const Product({
     required this.id,
@@ -39,6 +45,12 @@ class Product extends Equatable {
     this.detailTitle,
     this.detailBrand,
     this.detailPrice,
+    this.defaultSize,
+    this.defaultColor,
+    this.addToCartText,
+    this.relatedSectionTitle,
+    this.relatedItemsCount,
+    this.expandableSections,
   });
 
   // Helper getters
@@ -66,6 +78,12 @@ class Product extends Equatable {
     String? detailTitle,
     String? detailBrand,
     String? detailPrice,
+    String? defaultSize,
+    String? defaultColor,
+    String? addToCartText,
+    String? relatedSectionTitle,
+    String? relatedItemsCount,
+    Map<String, dynamic>? expandableSections,
   }) {
     return Product(
       id: id ?? this.id,
@@ -84,6 +102,12 @@ class Product extends Equatable {
       detailTitle: detailTitle ?? this.detailTitle,
       detailBrand: detailBrand ?? this.detailBrand,
       detailPrice: detailPrice ?? this.detailPrice,
+      defaultSize: defaultSize ?? this.defaultSize,
+      defaultColor: defaultColor ?? this.defaultColor,
+      addToCartText: addToCartText ?? this.addToCartText,
+      relatedSectionTitle: relatedSectionTitle ?? this.relatedSectionTitle,
+      relatedItemsCount: relatedItemsCount ?? this.relatedItemsCount,
+      expandableSections: expandableSections ?? this.expandableSections,
     );
   }
 
@@ -111,5 +135,11 @@ class Product extends Equatable {
     detailTitle,
     detailBrand,
     detailPrice,
+    defaultSize,
+    defaultColor,
+    addToCartText,
+    relatedSectionTitle,
+    relatedItemsCount,
+    expandableSections,
   ];
 }
