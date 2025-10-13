@@ -50,7 +50,7 @@ class StreetClothesHeroSection extends StatelessWidget {
                                   style: TextStyle(
                                     color: Color(0xFF000000),
                                     fontSize: 15,
-                                    fontWeight: FontWeight.bold,
+                                    fontWeight: FontWeight.w600,
                                   ),
                                 ),
                               ),
