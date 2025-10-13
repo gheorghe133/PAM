@@ -26,7 +26,6 @@ class StreetClothesHeroSection extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Status Bar - folosind componenta reutilizabilă
             Container(
               margin: const EdgeInsets.only(bottom: 103),
               child: const StatusBarContent(
@@ -39,7 +38,7 @@ class StreetClothesHeroSection extends StatelessWidget {
                 ),
               ),
             ),
-            // Title
+
             Container(
               margin: const EdgeInsets.only(left: 16, right: 123),
               child: Text(
@@ -68,16 +67,12 @@ class MobileSignalPainter extends CustomPainter {
 
     final path = Path();
 
-    // Bar 1 (shortest)
     path.addRRect(RRect.fromLTRBR(0.67, 7.33, 3.67, 11.33, Radius.circular(1)));
 
-    // Bar 2
     path.addRRect(RRect.fromLTRBR(5.33, 5.33, 8.33, 11.33, Radius.circular(1)));
 
-    // Bar 3
     path.addRRect(RRect.fromLTRBR(10.0, 3.0, 13.0, 11.33, Radius.circular(1)));
 
-    // Bar 4 (tallest)
     path.addRRect(
       RRect.fromLTRBR(14.67, 0.67, 17.67, 11.33, Radius.circular(1)),
     );
@@ -96,7 +91,6 @@ class WifiSignalPainter extends CustomPainter {
       ..color = Colors.black
       ..style = PaintingStyle.fill;
 
-    // Innermost WiFi arc (closest to center)
     Path path1 = Path();
     path1.moveTo(6.12, 8.73);
     path1.cubicTo(7.40, 7.65, 9.26, 7.65, 10.54, 8.73);
@@ -109,7 +103,6 @@ class WifiSignalPainter extends CustomPainter {
     path1.close();
     canvas.drawPath(path1, paint);
 
-    // Middle WiFi arc
     Path path2 = Path();
     path2.moveTo(3.46, 6.04);
     path2.cubicTo(6.20, 3.49, 10.46, 3.49, 13.21, 6.04);
@@ -126,7 +119,6 @@ class WifiSignalPainter extends CustomPainter {
     path2.close();
     canvas.drawPath(path2, paint);
 
-    // Outermost WiFi arc
     Path path3 = Path();
     path3.moveTo(0.79, 3.36);
     path3.cubicTo(5.01, -0.68, 11.66, -0.68, 15.87, 3.36);
@@ -155,13 +147,11 @@ class BatteryPainter extends CustomPainter {
       ..color = Colors.black
       ..style = PaintingStyle.fill;
 
-    // Battery outline
     final outlinePaint = Paint()
       ..color = Color.fromRGBO(0, 0, 0, 0.35)
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.0;
 
-    // Battery body outline
     final bodyRect = RRect.fromLTRBR(
       0.5,
       0.83,
@@ -171,7 +161,6 @@ class BatteryPainter extends CustomPainter {
     );
     canvas.drawRRect(bodyRect, outlinePaint);
 
-    // Battery terminal
     final terminalPaint = Paint()
       ..color = Color.fromRGBO(0, 0, 0, 0.4)
       ..style = PaintingStyle.fill;
@@ -184,7 +173,6 @@ class BatteryPainter extends CustomPainter {
     terminalPath.close();
     canvas.drawPath(terminalPath, terminalPaint);
 
-    // Battery fill
     final fillRect = RRect.fromLTRBR(2, 2.33, 20, 9.67, Radius.circular(1.33));
     canvas.drawRRect(fillRect, paint);
   }

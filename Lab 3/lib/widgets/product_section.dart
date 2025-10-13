@@ -34,12 +34,10 @@ class ProductSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Section Header
           _buildSectionHeader(),
 
           SizedBox(height: 15),
 
-          // Product Cards
           _buildProductList(),
         ],
       ),
@@ -123,7 +121,6 @@ class ProductSection extends StatelessWidget {
   }
 }
 
-// Specialized widgets for different sections
 class SalesSection extends StatelessWidget {
   final List<Product> products;
   final VoidCallback? onViewAllPressed;

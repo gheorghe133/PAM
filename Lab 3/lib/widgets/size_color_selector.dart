@@ -22,7 +22,6 @@ class SizeColorSelector extends StatelessWidget {
         width: double.infinity,
         child: Row(
           children: [
-            // Size Selector
             IntrinsicWidth(
               child: IntrinsicHeight(
                 child: Container(
@@ -52,7 +51,10 @@ class SizeColorSelector extends StatelessWidget {
                             decoration: InputDecoration(
                               hintText: selectedSize,
                               isDense: true,
-                              contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 4),
+                              contentPadding: EdgeInsets.symmetric(
+                                vertical: 8,
+                                horizontal: 4,
+                              ),
                               border: InputBorder.none,
                             ),
                           ),
@@ -73,7 +75,6 @@ class SizeColorSelector extends StatelessWidget {
               ),
             ),
 
-            // Color Selector
             IntrinsicWidth(
               child: IntrinsicHeight(
                 child: Container(
@@ -103,7 +104,10 @@ class SizeColorSelector extends StatelessWidget {
                             decoration: InputDecoration(
                               hintText: selectedColor,
                               isDense: true,
-                              contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 4),
+                              contentPadding: EdgeInsets.symmetric(
+                                vertical: 8,
+                                horizontal: 4,
+                              ),
                               border: InputBorder.none,
                             ),
                           ),
@@ -124,7 +128,6 @@ class SizeColorSelector extends StatelessWidget {
               ),
             ),
 
-            // Favorite button
             Container(
               width: 36,
               height: 36,

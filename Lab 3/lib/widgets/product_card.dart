@@ -27,13 +27,12 @@ class ProductCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Product Image with Sale Label and Favorite Button
             Stack(
               clipBehavior:
                   Clip.none, // Permite butonului să depășească marginile
               children: [
                 _buildProductImage(),
-                // Favorite Button (outside image container to allow overflow)
+
                 Positioned(
                   bottom:
                       -18, // Jumătate din înălțimea butonului (36px / 2 = 18px) sub marginea imaginii
@@ -63,25 +62,20 @@ class ProductCard extends StatelessWidget {
               ],
             ),
 
-            // Spațiu normal între imagine și rating
             SizedBox(height: 8),
 
-            // Rating
             _buildRating(),
 
             SizedBox(height: 4),
 
-            // Brand Name
             _buildBrandName(),
 
             SizedBox(height: 2),
 
-            // Item Name
             _buildItemName(),
 
             SizedBox(height: 4),
 
-            // Prices
             _buildPrices(),
           ],
         ),
@@ -103,7 +97,6 @@ class ProductCard extends StatelessWidget {
       ),
       child: Stack(
         children: [
-          // Sale Label (only show if product is on sale)
           if (product.isOnSale)
             Positioned(
               top: 8,
@@ -125,7 +118,6 @@ class ProductCard extends StatelessWidget {
               ),
             ),
 
-          // New Label (only show if product is new)
           if (product.isNew && !product.isOnSale)
             Positioned(
               top: 8,

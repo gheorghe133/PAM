@@ -20,7 +20,6 @@ class ProductDescription extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Product Description Text
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 16),
                   width: double.infinity,
@@ -34,7 +33,6 @@ class ProductDescription extends StatelessWidget {
           );
         }
 
-        // Fallback for when no product is selected
         return SizedBox.shrink();
       },
     );

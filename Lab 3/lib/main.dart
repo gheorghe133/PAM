@@ -14,9 +14,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ProductBloc(
-        repository: ProductRepository(),
-      )..add(const LoadProducts()), // Load products on app start
+      create: (context) =>
+          ProductBloc(repository: ProductRepository())
+            ..add(const LoadProducts()),
       child: MaterialApp(
         title: 'Street Clothes',
         theme: ThemeData(

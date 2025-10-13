@@ -16,10 +16,8 @@ class ProductImages extends StatelessWidget {
 
           return Column(
             children: [
-              // Status bar content (9:41, WiFi, battery icons)
               const StatusBarContent(),
 
-              // App bar (back button, title, share button)
               Container(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 16,
@@ -29,7 +27,6 @@ class ProductImages extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    // Back button
                     GestureDetector(
                       onTap: () => Navigator.pop(context),
                       child: const SizedBox(
@@ -43,7 +40,6 @@ class ProductImages extends StatelessWidget {
                       ),
                     ),
 
-                    // Title - using hardcoded data from JSON
                     Text(
                       product.detailTitle ?? "Short dress",
                       style: TextStyle(
@@ -53,7 +49,6 @@ class ProductImages extends StatelessWidget {
                       ),
                     ),
 
-                    // Share button
                     const SizedBox(
                       width: 24,
                       height: 24,
@@ -62,11 +57,11 @@ class ProductImages extends StatelessWidget {
                   ],
                 ),
               ),
-              // Image area - using images from product data
+
               Container(
                 margin: const EdgeInsets.only(bottom: 12),
                 width: double.infinity,
-                height: 400, // Standard height for product images
+                height: 400,
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
@@ -101,7 +96,6 @@ class ProductImages extends StatelessWidget {
           );
         }
 
-        // Fallback for when no product is selected
         return SizedBox.shrink();
       },
     );

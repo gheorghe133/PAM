@@ -77,7 +77,7 @@ class HomeScreen extends StatelessWidget {
             return RefreshIndicator(
               onRefresh: () async {
                 context.read<ProductBloc>().add(const RefreshProducts());
-                // Wait for the refresh to complete
+
                 await context.read<ProductBloc>().stream.firstWhere(
                   (state) => state is! ProductLoading,
                 );
@@ -87,10 +87,8 @@ class HomeScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Hero Section
                     const StreetClothesHeroSection(),
 
-                    // Sales Section
                     SalesSection(
                       products: products,
                       onViewAllPressed: () =>
@@ -101,7 +99,6 @@ class HomeScreen extends StatelessWidget {
                           _onFavoritePressed(context, product),
                     ),
 
-                    // New Section
                     NewSection(
                       products: products,
                       onViewAllPressed: () => _onViewAllPressed(context, 'New'),
@@ -123,8 +120,6 @@ class HomeScreen extends StatelessWidget {
   }
 
   void _onViewAllPressed(BuildContext context, String section) {
-    // Navigate to category page or show all products
-    // For now, just show a message
     ScaffoldMessenger.of(
       context,
     ).showSnackBar(SnackBar(content: Text('View all $section products')));
@@ -140,7 +135,6 @@ class HomeScreen extends StatelessWidget {
   }
 
   void _onFavoritePressed(BuildContext context, Product product) {
-    // Use BLoC to toggle favorite status
     context.read<ProductBloc>().add(ToggleFavorite(product.id));
   }
 }

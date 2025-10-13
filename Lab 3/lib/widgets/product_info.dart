@@ -15,7 +15,6 @@ class ProductInfo extends StatelessWidget {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Brand and Price Row
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 16),
                 width: double.infinity,
@@ -45,7 +44,6 @@ class ProductInfo extends StatelessWidget {
                 ),
               ),
 
-              // Product Name - using hardcoded data from JSON
               Container(
                 margin: const EdgeInsets.only(bottom: 8, left: 16, right: 16),
                 child: Text(
@@ -58,12 +56,10 @@ class ProductInfo extends StatelessWidget {
                 ),
               ),
 
-              // Rating Stars
               Container(
                 margin: const EdgeInsets.only(bottom: 20, left: 17),
                 child: Row(
                   children: [
-                    // Stars based on product rating
                     ...List.generate(
                       5,
                       (index) => Container(
@@ -80,7 +76,6 @@ class ProductInfo extends StatelessWidget {
                       ),
                     ),
 
-                    // Review count
                     Container(
                       margin: const EdgeInsets.only(left: 2),
                       child: Text(
@@ -98,7 +93,6 @@ class ProductInfo extends StatelessWidget {
           );
         }
 
-        // Fallback for when no product is selected
         return SizedBox.shrink();
       },
     );

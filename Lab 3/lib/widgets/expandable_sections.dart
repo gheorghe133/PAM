@@ -27,7 +27,6 @@ class ExpandableSections extends StatelessWidget {
 
         return Column(
           children: [
-            // Separator line
             Container(
               color: Color(0xFFE5E5E5),
               margin: const EdgeInsets.only(bottom: 12),
@@ -35,15 +34,11 @@ class ExpandableSections extends StatelessWidget {
               width: double.infinity,
             ),
 
-            // Item details section
             _buildExpandableSection(
               title: sections['itemDetails']!,
-              onTap: () {
-                // Expand item details section
-              },
+              onTap: () {},
             ),
 
-            // Separator line
             Container(
               color: Color(0xFFE5E5E5),
               margin: const EdgeInsets.only(bottom: 12),
@@ -51,15 +46,11 @@ class ExpandableSections extends StatelessWidget {
               width: double.infinity,
             ),
 
-            // Shipping info section
             _buildExpandableSection(
               title: sections['shippingInfo']!,
-              onTap: () {
-                // Expand shipping info section
-              },
+              onTap: () {},
             ),
 
-            // Separator line
             Container(
               color: Color(0xFFE5E5E5),
               margin: const EdgeInsets.only(bottom: 12),
@@ -67,15 +58,8 @@ class ExpandableSections extends StatelessWidget {
               width: double.infinity,
             ),
 
-            // Support section
-            _buildExpandableSection(
-              title: sections['support']!,
-              onTap: () {
-                // Expand support section
-              },
-            ),
+            _buildExpandableSection(title: sections['support']!, onTap: () {}),
 
-            // Separator line
             Container(
               color: Color(0xFFE5E5E5),
               margin: const EdgeInsets.only(bottom: 20),

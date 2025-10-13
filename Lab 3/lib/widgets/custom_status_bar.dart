@@ -35,7 +35,6 @@ class CustomStatusBar extends StatelessWidget {
   }
 }
 
-/// Custom App Bar component pentru consistență
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
   final Widget? leading;
@@ -105,7 +104,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
 
-/// Scaffold wrapper cu status bar consistent
 class CustomScaffold extends StatelessWidget {
   final Widget body;
   final PreferredSizeWidget? appBar;
@@ -142,7 +140,6 @@ class CustomScaffold extends StatelessWidget {
   }
 }
 
-/// Widget reutilizabil pentru status bar cu conținut (9:41, WiFi, baterie)
 class StatusBarContent extends StatelessWidget {
   final Color backgroundColor;
   final Color textColor;

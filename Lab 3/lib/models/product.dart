@@ -53,14 +53,12 @@ class Product extends Equatable {
     this.expandableSections,
   });
 
-  // Helper getters
   bool get isOnSale => saleLabel != null && saleLabel!.isNotEmpty;
 
   String get formattedOldPrice => '${oldPrice.toStringAsFixed(0)}\$';
 
   String get formattedNewPrice => '${newPrice.toStringAsFixed(0)}\$';
 
-  // Copy with method for state updates
   Product copyWith({
     String? id,
     String? imagePath,
@@ -111,12 +109,10 @@ class Product extends Equatable {
     );
   }
 
-  // JSON serialization
   factory Product.fromJson(Map<String, dynamic> json) =>
       _$ProductFromJson(json);
   Map<String, dynamic> toJson() => _$ProductToJson(this);
 
-  // Equatable props for state comparison
   @override
   List<Object?> get props => [
     id,

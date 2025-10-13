@@ -14,36 +14,30 @@ class RelatedProducts extends StatelessWidget {
       builder: (context, state) {
         List<Product> products = [];
 
-        // Extract products from current state
         if (state is ProductLoaded) {
           products = state.allProducts;
         } else if (state is ProductSelected) {
           products = state.allProducts;
         }
 
-        // Show specific products as before: Sales ID '1', New ID '5', New ID '5'
         final relatedProducts = <Product>[];
 
-        // First product - Sales (ID '1')
         final salesProduct = products.firstWhere(
           (p) => p.id == '1',
           orElse: () => products.isNotEmpty ? products[0] : products.first,
         );
         relatedProducts.add(salesProduct);
 
-        // Second product - New (ID '5')
         final newProduct = products.firstWhere(
           (p) => p.id == '5',
           orElse: () => products.length > 4 ? products[4] : products.last,
         );
         relatedProducts.add(newProduct);
 
-        // Third product - same as second (ID '5')
         relatedProducts.add(newProduct);
 
         return Column(
           children: [
-            // Section header
             Container(
               margin: const EdgeInsets.only(bottom: 12, left: 16, right: 16),
               width: double.infinity,
@@ -52,7 +46,8 @@ class RelatedProducts extends StatelessWidget {
                   Expanded(
                     child: Text(
                       relatedProducts.isNotEmpty
-                          ? (relatedProducts.first.relatedSectionTitle ?? "You can also like this")
+                          ? (relatedProducts.first.relatedSectionTitle ??
+                                "You can also like this")
                           : "You can also like this",
                       style: TextStyle(
                         color: Color(0xFF222222),
@@ -63,7 +58,8 @@ class RelatedProducts extends StatelessWidget {
                   ),
                   Text(
                     relatedProducts.isNotEmpty
-                        ? (relatedProducts.first.relatedItemsCount ?? "12 items")
+                        ? (relatedProducts.first.relatedItemsCount ??
+                              "12 items")
                         : "12 items",
                     style: TextStyle(color: Color(0xFF9B9B9B), fontSize: 11),
                   ),
@@ -71,7 +67,6 @@ class RelatedProducts extends StatelessWidget {
               ),
             ),
 
-            // Products horizontal scroll
             Container(
               margin: const EdgeInsets.only(bottom: 101),
               width: double.infinity,
@@ -99,7 +94,6 @@ class RelatedProducts extends StatelessWidget {
                           width: 148,
                           height: 300,
                           onTap: () {
-                            // Navigate to product detail page
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
@@ -109,7 +103,6 @@ class RelatedProducts extends StatelessWidget {
                             );
                           },
                           onFavoritePressed: () {
-                            // Toggle favorite status
                             context.read<ProductBloc>().add(
                               ToggleFavorite(product.id),
                             );
