@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 
 class ProductInfo extends StatelessWidget {
-  const ProductInfo({Key? key}) : super(key: key);
+  const ProductInfo({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Brand and Price Row
         IntrinsicHeight(
           child: Container(
             margin: const EdgeInsets.symmetric(horizontal: 16),
@@ -48,7 +47,6 @@ class ProductInfo extends StatelessWidget {
           ),
         ),
 
-        // Product Name
         Container(
           margin: const EdgeInsets.only(bottom: 8, left: 16, right: 269),
           child: Text(
@@ -61,14 +59,12 @@ class ProductInfo extends StatelessWidget {
           ),
         ),
 
-        // Rating Stars
         IntrinsicWidth(
           child: IntrinsicHeight(
             child: Container(
               margin: const EdgeInsets.only(bottom: 20, left: 17),
               child: Row(
                 children: [
-                  // 5 Stars
                   ...List.generate(
                     5,
                     (index) => Container(
@@ -83,7 +79,6 @@ class ProductInfo extends StatelessWidget {
                     ),
                   ),
 
-                  // Review count
                   Container(
                     margin: const EdgeInsets.only(left: 2),
                     child: Text(

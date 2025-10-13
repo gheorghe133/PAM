@@ -4,9 +4,9 @@ class AddToCart extends StatelessWidget {
   final VoidCallback? onAddToCart;
 
   const AddToCart({
-    Key? key,
+    super.key,
     this.onAddToCart,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -3,13 +3,12 @@ import '../data/sample_products.dart';
 import 'product_card.dart';
 
 class RelatedProducts extends StatelessWidget {
-  const RelatedProducts({Key? key}) : super(key: key);
+  const RelatedProducts({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        // Section header
         IntrinsicHeight(
           child: Container(
             margin: const EdgeInsets.only(bottom: 12, left: 16, right: 16),
@@ -38,7 +37,6 @@ class RelatedProducts extends StatelessWidget {
           ),
         ),
 
-        // Products horizontal scroll
         IntrinsicWidth(
           child: IntrinsicHeight(
             child: Container(
@@ -51,54 +49,36 @@ class RelatedProducts extends StatelessWidget {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // First product - primul card de la Sales (ID '1')
                       Container(
                         margin: const EdgeInsets.only(right: 12),
                         child: ProductCard(
-                          product: SampleProducts
-                              .allProducts[0], // ID '1' - primul de la Sales
+                          product: SampleProducts.allProducts[0],
                           width: 148,
                           height: 300,
-                          onTap: () {
-                            // Navigate to product detail page
-                          },
-                          onFavoritePressed: () {
-                            // Toggle favorite status
-                          },
+                          onTap: () {},
+                          onFavoritePressed: () {},
                         ),
                       ),
 
-                      // Second product - al doilea card de la New (ID '5')
                       Container(
                         margin: const EdgeInsets.only(right: 12),
                         child: ProductCard(
-                          product: SampleProducts
-                              .allProducts[4], // ID '5' - al doilea de la New
+                          product: SampleProducts.allProducts[4],
                           width: 148,
                           height: 300,
-                          onTap: () {
-                            // Navigate to product detail page
-                          },
-                          onFavoritePressed: () {
-                            // Toggle favorite status
-                          },
+                          onTap: () {},
+                          onFavoritePressed: () {},
                         ),
                       ),
 
-                      // Third product - același ca al doilea (ID '5')
                       Container(
                         margin: const EdgeInsets.only(right: 12),
                         child: ProductCard(
-                          product: SampleProducts
-                              .allProducts[4], // ID '5' - același ca al doilea
+                          product: SampleProducts.allProducts[4],
                           width: 148,
                           height: 300,
-                          onTap: () {
-                            // Navigate to product detail page
-                          },
-                          onFavoritePressed: () {
-                            // Toggle favorite status
-                          },
+                          onTap: () {},
+                          onFavoritePressed: () {},
                         ),
                       ),
                     ],

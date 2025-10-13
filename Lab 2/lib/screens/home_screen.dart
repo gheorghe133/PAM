@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import '../widgets/hero_section.dart';
 import '../widgets/product_section.dart';
+import '../widgets/custom_status_bar.dart';
+
 import '../models/product.dart';
 import '../data/sample_products.dart';
 import 'product_detail_screen.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -17,16 +19,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white, // Background alb
+    return CustomScaffold(
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Hero Section
-            StreetClothesHeroSection(),
+            const StreetClothesHeroSection(),
 
-            // Sales Section
             SalesSection(
               products: products,
               onViewAllPressed: () => _onViewAllPressed('Sale'),
@@ -34,7 +34,6 @@ class _HomeScreenState extends State<HomeScreen> {
               onFavoritePressed: _onFavoritePressed,
             ),
 
-            // New Section
             NewSection(
               products: products,
               onViewAllPressed: () => _onViewAllPressed('New'),

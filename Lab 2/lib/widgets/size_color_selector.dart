@@ -7,12 +7,12 @@ class SizeColorSelector extends StatelessWidget {
   final Function(String) onColorChanged;
 
   const SizeColorSelector({
-    Key? key,
+    super.key,
     required this.selectedSize,
     required this.selectedColor,
     required this.onSizeChanged,
     required this.onColorChanged,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,6 @@ class SizeColorSelector extends StatelessWidget {
         width: double.infinity,
         child: Row(
           children: [
-            // Size Selector
             IntrinsicWidth(
               child: IntrinsicHeight(
                 child: Container(
@@ -73,7 +72,6 @@ class SizeColorSelector extends StatelessWidget {
               ),
             ),
 
-            // Color Selector
             IntrinsicWidth(
               child: IntrinsicHeight(
                 child: Container(
@@ -124,7 +122,6 @@ class SizeColorSelector extends StatelessWidget {
               ),
             ),
 
-            // Favorite button
             Container(
               width: 36,
               height: 36,

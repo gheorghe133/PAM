@@ -14,7 +14,7 @@ class ProductSection extends StatelessWidget {
   final double? height;
 
   const ProductSection({
-    Key? key,
+    super.key,
     required this.title,
     required this.subtitle,
     required this.products,
@@ -24,7 +24,7 @@ class ProductSection extends StatelessWidget {
     this.onFavoritePressed,
     this.padding = const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
     this.height = 300,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -34,12 +34,10 @@ class ProductSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Section Header
           _buildSectionHeader(),
 
           SizedBox(height: 15),
 
-          // Product Cards
           _buildProductList(),
         ],
       ),
@@ -93,7 +91,7 @@ class ProductSection extends StatelessWidget {
 
   Widget _buildProductList() {
     if (products.isEmpty) {
-      return Container(
+      return SizedBox(
         height: height,
         child: Center(
           child: Text(
@@ -104,7 +102,7 @@ class ProductSection extends StatelessWidget {
       );
     }
 
-    return Container(
+    return SizedBox(
       height: height,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
@@ -123,7 +121,6 @@ class ProductSection extends StatelessWidget {
   }
 }
 
-// Specialized widgets for different sections
 class SalesSection extends StatelessWidget {
   final List<Product> products;
   final VoidCallback? onViewAllPressed;
@@ -131,12 +128,12 @@ class SalesSection extends StatelessWidget {
   final Function(Product)? onFavoritePressed;
 
   const SalesSection({
-    Key? key,
+    super.key,
     required this.products,
     this.onViewAllPressed,
     this.onProductTap,
     this.onFavoritePressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -158,12 +155,12 @@ class NewSection extends StatelessWidget {
   final Function(Product)? onFavoritePressed;
 
   const NewSection({
-    Key? key,
+    super.key,
     required this.products,
     this.onViewAllPressed,
     this.onProductTap,
     this.onFavoritePressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 
 class ExpandableSections extends StatelessWidget {
-  const ExpandableSections({Key? key}) : super(key: key);
+  const ExpandableSections({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        // Separator line
         Container(
           color: Color(0xFFE5E5E5),
           margin: const EdgeInsets.only(bottom: 12),
@@ -15,15 +14,11 @@ class ExpandableSections extends StatelessWidget {
           width: double.infinity,
         ),
 
-        // Item details section
         _buildExpandableSection(
           title: "Item details",
-          onTap: () {
-            // Expand item details section
-          },
+          onTap: () {},
         ),
 
-        // Separator line
         Container(
           color: Color(0xFFE5E5E5),
           margin: const EdgeInsets.only(bottom: 12),
@@ -31,15 +26,11 @@ class ExpandableSections extends StatelessWidget {
           width: double.infinity,
         ),
 
-        // Shipping info section
         _buildExpandableSection(
           title: "Shipping info",
-          onTap: () {
-            // Expand shipping info section
-          },
+          onTap: () {},
         ),
 
-        // Separator line
         Container(
           color: Color(0xFFE5E5E5),
           margin: const EdgeInsets.only(bottom: 12),
@@ -47,15 +38,11 @@ class ExpandableSections extends StatelessWidget {
           width: double.infinity,
         ),
 
-        // Support section
         _buildExpandableSection(
           title: "Support",
-          onTap: () {
-            // Expand support section
-          },
+          onTap: () {},
         ),
 
-        // Separator line
         Container(
           color: Color(0xFFE5E5E5),
           margin: const EdgeInsets.only(bottom: 20),

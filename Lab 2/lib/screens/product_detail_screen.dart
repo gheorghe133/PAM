@@ -11,7 +11,7 @@ import '../widgets/add_to_cart.dart';
 class ProductDetailScreen extends StatefulWidget {
   final Product? product;
 
-  const ProductDetailScreen({Key? key, this.product}) : super(key: key);
+  const ProductDetailScreen({super.key, this.product});
 
   @override
   State<ProductDetailScreen> createState() => _ProductDetailScreenState();
@@ -26,7 +26,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
     return Scaffold(
       body: Column(
         children: [
-          // Scrollable content
           Expanded(
             child: Container(
               color: Color(0xFFFFFFFF),
@@ -34,10 +33,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Product Images (now includes status bar and app bar)
                     ProductImages(),
 
-                    // Size and Color Selector
                     SizeColorSelector(
                       selectedSize: selectedSize,
                       selectedColor: selectedColor,
@@ -53,19 +50,14 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                       },
                     ),
 
-                    // Product Info (Brand, Name, Price, Rating)
                     ProductInfo(),
 
-                    // Product Description
                     ProductDescription(),
 
-                    // Expandable Sections (Item details, Shipping info, Support)
                     ExpandableSections(),
 
-                    // Related Products
                     RelatedProducts(),
 
-                    // Bottom spacing to prevent content from being hidden behind the button
                     SizedBox(height: 80),
                   ],
                 ),
@@ -73,7 +65,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             ),
           ),
 
-          // Fixed Add to Cart Button at bottom (no padding)
           AddToCart(onAddToCart: _onAddToCart),
         ],
       ),
@@ -81,7 +72,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   }
 
   void _onAddToCart() {
-    // Add product to cart logic here
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text('Product added to cart!'),
