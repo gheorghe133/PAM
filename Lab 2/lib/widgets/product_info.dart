@@ -32,7 +32,7 @@ class ProductInfo extends StatelessWidget {
                   child: Container(
                     width: double.infinity,
                     child: Text(
-                      "\$19.99",
+                      "19.99\$",
                       style: TextStyle(
                         color: Color(0xFF222222),
                         fontSize: 24,

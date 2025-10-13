@@ -81,12 +81,12 @@ class RelatedProducts extends StatelessWidget {
                         ),
                       ),
 
-                      // Third product - al treilea card de la New (ID '6')
+                      // Third product - același ca al doilea (ID '5')
                       Container(
                         margin: const EdgeInsets.only(right: 12),
                         child: ProductCard(
                           product: SampleProducts
-                              .allProducts[5], // ID '6' - al treilea de la New
+                              .allProducts[4], // ID '5' - același ca al doilea
                           width: 148,
                           height: 300,
                           onTap: () {

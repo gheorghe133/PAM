@@ -28,9 +28,9 @@ class Product {
   // Helper getters
   bool get isOnSale => saleLabel != null && saleLabel!.isNotEmpty;
 
-  String get formattedOldPrice => '\$${oldPrice.toStringAsFixed(0)}';
+  String get formattedOldPrice => '${oldPrice.toStringAsFixed(0)}\$';
 
-  String get formattedNewPrice => '\$${newPrice.toStringAsFixed(0)}';
+  String get formattedNewPrice => '${newPrice.toStringAsFixed(0)}\$';
 
   double get discountPercentage {
     if (oldPrice <= 0) return 0;
