@@ -47,7 +47,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final VoidCallback? onBackPressed;
 
   const CustomAppBar({
-    Key? key,
+    super.key,
     this.title,
     this.leading,
     this.actions,
@@ -56,7 +56,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.elevation = 0,
     this.centerTitle = true,
     this.onBackPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -116,7 +116,7 @@ class CustomScaffold extends StatelessWidget {
   final Brightness statusBarBrightness;
 
   const CustomScaffold({
-    Key? key,
+    super.key,
     required this.body,
     this.appBar,
     this.bottomNavigationBar,
@@ -124,7 +124,7 @@ class CustomScaffold extends StatelessWidget {
     this.backgroundColor = Colors.white,
     this.statusBarColor = Colors.white,
     this.statusBarBrightness = Brightness.light,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -193,7 +193,7 @@ class StatusBarContent extends StatelessWidget {
                 child: CustomPaint(painter: WifiSignalPainter()),
               ),
               // Battery icon
-              Container(
+              SizedBox(
                 width: 25,
                 height: 12,
                 child: CustomPaint(painter: BatteryPainter()),

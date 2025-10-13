@@ -7,12 +7,12 @@ class SizeColorSelector extends StatelessWidget {
   final Function(String) onColorChanged;
 
   const SizeColorSelector({
-    Key? key,
+    super.key,
     required this.selectedSize,
     required this.selectedColor,
     required this.onSizeChanged,
     required this.onColorChanged,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +58,7 @@ class SizeColorSelector extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Container(
+                      SizedBox(
                         width: 16,
                         height: 16,
                         child: Icon(
@@ -109,7 +109,7 @@ class SizeColorSelector extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Container(
+                      SizedBox(
                         width: 16,
                         height: 16,
                         child: Icon(

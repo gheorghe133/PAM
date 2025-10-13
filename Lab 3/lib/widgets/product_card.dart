@@ -9,13 +9,13 @@ class ProductCard extends StatelessWidget {
   final double? height;
 
   const ProductCard({
-    Key? key,
+    super.key,
     required this.product,
     this.onTap,
     this.onFavoritePressed,
     this.width = 148,
     this.height = 300,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

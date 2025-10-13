@@ -6,9 +6,9 @@ class StreetClothesHeroSection extends StatelessWidget {
   final String? backgroundImagePath;
 
   const StreetClothesHeroSection({
-    Key? key,
+    super.key,
     this.backgroundImagePath = 'assests/banner.jpg',
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
