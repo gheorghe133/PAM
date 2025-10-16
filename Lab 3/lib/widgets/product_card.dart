@@ -21,21 +21,19 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Container(
+      child: SizedBox(
         width: width,
         height: height,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Stack(
-              clipBehavior:
-                  Clip.none, // Permite butonului să depășească marginile
+              clipBehavior: Clip.none,
               children: [
                 _buildProductImage(),
 
                 Positioned(
-                  bottom:
-                      -18, // Jumătate din înălțimea butonului (36px / 2 = 18px) sub marginea imaginii
+                  bottom: -18,
                   right: 0,
                   child: Material(
                     elevation: 4,

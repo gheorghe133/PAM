@@ -31,38 +31,10 @@ class ProductRepository {
     }
   }
 
-  Future<List<Product>> loadProductsByCategory({
-    bool? isNew,
-    bool? isOnSale,
-    bool? isFavorite,
-  }) async {
-    final allProducts = await loadProducts();
-
-    return allProducts.where((product) {
-      if (isNew != null && product.isNew != isNew) return false;
-      if (isOnSale != null && product.isOnSale != isOnSale) return false;
-      if (isFavorite != null && product.isFavorite != isFavorite) return false;
-      return true;
-    }).toList();
-  }
-
   Future<Product> updateProduct(Product product) async {
     await Future.delayed(const Duration(milliseconds: 500));
 
     return product;
-  }
-
-  Future<List<Product>> searchProducts(String query) async {
-    final allProducts = await loadProducts();
-
-    if (query.isEmpty) return allProducts;
-
-    final lowercaseQuery = query.toLowerCase();
-
-    return allProducts.where((product) {
-      return product.itemName.toLowerCase().contains(lowercaseQuery) ||
-          product.brandName.toLowerCase().contains(lowercaseQuery);
-    }).toList();
   }
 }
 
