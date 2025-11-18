@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'custom_status_bar.dart';
-import '../core/constants.dart';
 
 class StreetClothesHeroSection extends StatelessWidget {
   final String? backgroundImagePath;
@@ -9,122 +8,58 @@ class StreetClothesHeroSection extends StatelessWidget {
 
   const StreetClothesHeroSection({
     super.key,
-    this.backgroundImagePath,
+    this.backgroundImagePath = 'assests/banner.jpg',
     this.bannerImage,
     this.title,
   });
 
   @override
   Widget build(BuildContext context) {
+    final ImageProvider backgroundImage;
+    if (bannerImage != null && bannerImage!.isNotEmpty) {
+      backgroundImage = NetworkImage(bannerImage!);
+    } else if (backgroundImagePath != null) {
+      backgroundImage = AssetImage(backgroundImagePath!);
+    } else {
+      backgroundImage = const AssetImage('assests/banner.jpg');
+    }
+
     return IntrinsicHeight(
-      child: Stack(
-        children: [
-          Positioned.fill(
-            child: bannerImage != null && bannerImage!.startsWith('http')
-                ? Image.network(
-                    bannerImage!,
-                    fit: BoxFit.cover,
-                    loadingBuilder: (context, child, loadingProgress) {
-                      if (loadingProgress == null) return child;
-                      return Container(
-                        color: Colors.grey[300],
-                        child: Center(
-                          child: CircularProgressIndicator(
-                            value: loadingProgress.expectedTotalBytes != null
-                                ? loadingProgress.cumulativeBytesLoaded /
-                                      loadingProgress.expectedTotalBytes!
-                                : null,
-                          ),
-                        ),
-                      );
-                    },
-                    errorBuilder: (context, error, stackTrace) {
-                      return Image.network(
-                        AppConstants.fallbackImageUrl,
-                        fit: BoxFit.cover,
-                        loadingBuilder: (context, child, loadingProgress) {
-                          if (loadingProgress == null) return child;
-                          return Container(
-                            color: Colors.grey[300],
-                            child: Center(
-                              child: CircularProgressIndicator(
-                                value:
-                                    loadingProgress.expectedTotalBytes != null
-                                    ? loadingProgress.cumulativeBytesLoaded /
-                                          loadingProgress.expectedTotalBytes!
-                                    : null,
-                              ),
-                            ),
-                          );
-                        },
-                        errorBuilder: (context, error, stackTrace) {
-                          return Container(
-                            color: Colors.grey[300],
-                            child: Center(
-                              child: Icon(
-                                Icons.broken_image,
-                                size: 64,
-                                color: Colors.grey[400],
-                              ),
-                            ),
-                          );
-                        },
-                      );
-                    },
-                  )
-                : Image.asset(
-                    backgroundImagePath ?? 'assests/banner.jpg',
-                    fit: BoxFit.cover,
-                    errorBuilder: (context, error, stackTrace) {
-                      return Container(
-                        color: Colors.grey[300],
-                        child: Center(
-                          child: Icon(
-                            Icons.broken_image,
-                            size: 64,
-                            color: Colors.grey[400],
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-          ),
-
-          Container(
-            padding: const EdgeInsets.only(top: 12, bottom: 26),
-            margin: const EdgeInsets.only(bottom: 37),
-            width: double.infinity,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  margin: const EdgeInsets.only(bottom: 103),
-                  child: const StatusBarContent(
-                    backgroundColor: Colors.transparent,
-                    padding: EdgeInsets.only(
-                      top: 2,
-                      bottom: 2,
-                      left: 21,
-                      right: 21,
-                    ),
-                  ),
+      child: Container(
+        padding: const EdgeInsets.only(top: 12, bottom: 26),
+        margin: const EdgeInsets.only(bottom: 37),
+        width: double.infinity,
+        decoration: BoxDecoration(
+          image: DecorationImage(image: backgroundImage, fit: BoxFit.cover),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              margin: const EdgeInsets.only(bottom: 103),
+              child: const StatusBarContent(
+                backgroundColor: Colors.transparent,
+                padding: EdgeInsets.only(
+                  top: 2,
+                  bottom: 2,
+                  left: 21,
+                  right: 21,
                 ),
-
-                Container(
-                  margin: const EdgeInsets.only(left: 16, right: 123),
-                  child: Text(
-                    title ?? "Street clothes",
-                    style: const TextStyle(
-                      color: Color(0xFFFFFFFF),
-                      fontSize: 34,
-                      fontWeight: FontWeight.w900,
-                    ),
-                  ),
-                ),
-              ],
+              ),
             ),
-          ),
-        ],
+            Container(
+              margin: const EdgeInsets.only(left: 16, right: 123),
+              child: Text(
+                title ?? 'Street clothes',
+                style: const TextStyle(
+                  color: Color(0xFFFFFFFF),
+                  fontSize: 34,
+                  fontWeight: FontWeight.w900,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
