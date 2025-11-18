@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'custom_status_bar.dart';
 import '../core/constants.dart';
 
-// Specialized hero section for Street Clothes app
 class StreetClothesHeroSection extends StatelessWidget {
   final String? backgroundImagePath;
   final String? bannerImage;
@@ -20,7 +19,6 @@ class StreetClothesHeroSection extends StatelessWidget {
     return IntrinsicHeight(
       child: Stack(
         children: [
-          // Background image: use API bannerImage when available, fallback to asset or global fallback
           Positioned.fill(
             child: bannerImage != null && bannerImage!.startsWith('http')
                 ? Image.network(
@@ -34,14 +32,13 @@ class StreetClothesHeroSection extends StatelessWidget {
                           child: CircularProgressIndicator(
                             value: loadingProgress.expectedTotalBytes != null
                                 ? loadingProgress.cumulativeBytesLoaded /
-                                    loadingProgress.expectedTotalBytes!
+                                      loadingProgress.expectedTotalBytes!
                                 : null,
                           ),
                         ),
                       );
                     },
                     errorBuilder: (context, error, stackTrace) {
-                      // Use fallback image when the banner image fails to load
                       return Image.network(
                         AppConstants.fallbackImageUrl,
                         fit: BoxFit.cover,
@@ -51,16 +48,16 @@ class StreetClothesHeroSection extends StatelessWidget {
                             color: Colors.grey[300],
                             child: Center(
                               child: CircularProgressIndicator(
-                                value: loadingProgress.expectedTotalBytes != null
+                                value:
+                                    loadingProgress.expectedTotalBytes != null
                                     ? loadingProgress.cumulativeBytesLoaded /
-                                        loadingProgress.expectedTotalBytes!
+                                          loadingProgress.expectedTotalBytes!
                                     : null,
                               ),
                             ),
                           );
                         },
                         errorBuilder: (context, error, stackTrace) {
-                          // If even the fallback fails, show broken image icon
                           return Container(
                             color: Colors.grey[300],
                             child: Center(
@@ -93,7 +90,6 @@ class StreetClothesHeroSection extends StatelessWidget {
                   ),
           ),
 
-          // Content overlay
           Container(
             padding: const EdgeInsets.only(top: 12, bottom: 26),
             margin: const EdgeInsets.only(bottom: 37),
@@ -134,7 +130,6 @@ class StreetClothesHeroSection extends StatelessWidget {
   }
 }
 
-// Custom painters for SVG icons (Black versions)
 class MobileSignalPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {

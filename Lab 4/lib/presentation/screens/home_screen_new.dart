@@ -69,8 +69,6 @@ class HomeScreenNew extends StatelessWidget {
           if (state is FeedLoaded ||
               state is FeedUpdating ||
               state is ProductDetailLoaded) {
-            // Derive header and sections from any compatible state so the feed
-            // remains visible even after viewing a product detail.
             late final FeedHeader header;
             late final List<FeedSection> sections;
 
@@ -85,13 +83,10 @@ class HomeScreenNew extends StatelessWidget {
                 header = state.header!;
                 sections = state.sections!;
               } else {
-                // If we don't have feed data (e.g., deep link into details),
-                // show a simple loading state instead of a blank screen.
                 return const Center(child: CircularProgressIndicator());
               }
             }
 
-            // Convert FeedItems to Products for compatibility with existing widgets
             final allProducts = sections
                 .expand((FeedSection section) => section.items)
                 .map(_feedItemToProduct)
@@ -137,16 +132,12 @@ class HomeScreenNew extends StatelessWidget {
             );
           }
 
-          // Fallback: if we reach here with an unexpected state, show a
-          // basic loading indicator instead of a blank screen.
           return const Center(child: CircularProgressIndicator());
         },
       ),
     );
   }
 
-  /// Convert FeedItem entity to Product model for widget compatibility.
-  /// Prefer the API image URL, but fall back to the global placeholder if needed.
   Product _feedItemToProduct(FeedItem item) {
     final image = item.image.isEmpty
         ? AppConstants.fallbackImageUrl

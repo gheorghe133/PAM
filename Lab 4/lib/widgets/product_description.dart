@@ -26,7 +26,10 @@ class ProductDescription extends StatelessWidget {
                   width: double.infinity,
                   child: Text(
                     description,
-                    style: const TextStyle(color: Color(0xFF222222), fontSize: 14),
+                    style: const TextStyle(
+                      color: Color(0xFF222222),
+                      fontSize: 14,
+                    ),
                   ),
                 ),
               ],

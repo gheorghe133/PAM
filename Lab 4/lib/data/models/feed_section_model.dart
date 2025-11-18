@@ -4,7 +4,6 @@ import 'feed_item_model.dart';
 
 part 'feed_section_model.g.dart';
 
-/// Data model for feed section with JSON serialization
 @JsonSerializable()
 class FeedSectionModel {
   final String title;
@@ -22,7 +21,6 @@ class FeedSectionModel {
 
   Map<String, dynamic> toJson() => _$FeedSectionModelToJson(this);
 
-  /// Convert data model to domain entity
   FeedSection toEntity() {
     return FeedSection(
       title: title,
@@ -31,4 +29,3 @@ class FeedSectionModel {
     );
   }
 }
-

@@ -1,7 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'feed_item.dart';
 
-/// Domain entity for a feed section (Sale, New, etc.)
 class FeedSection extends Equatable {
   final String title;
   final String subtitle;

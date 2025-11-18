@@ -1,6 +1,3 @@
-/// Product model for UI widgets
-/// This is a simple data class used by widgets
-/// It's separate from domain entities to keep widgets independent
 class Product {
   final String id;
   final String imagePath;

@@ -92,7 +92,6 @@ class ProductCard extends StatelessWidget {
       ),
       child: Stack(
         children: [
-          // Image layer: try the product-specific image first, then fall back.
           ClipRRect(
             borderRadius: BorderRadius.circular(8),
             child: Image.network(
@@ -106,14 +105,13 @@ class ProductCard extends StatelessWidget {
                   child: CircularProgressIndicator(
                     value: loadingProgress.expectedTotalBytes != null
                         ? loadingProgress.cumulativeBytesLoaded /
-                            loadingProgress.expectedTotalBytes!
+                              loadingProgress.expectedTotalBytes!
                         : null,
                     strokeWidth: 2,
                   ),
                 );
               },
               errorBuilder: (context, error, stackTrace) {
-                // If the product image fails, try the global fallback image.
                 return Image.network(
                   AppConstants.fallbackImageUrl,
                   fit: BoxFit.cover,
@@ -125,14 +123,13 @@ class ProductCard extends StatelessWidget {
                       child: CircularProgressIndicator(
                         value: loadingProgress.expectedTotalBytes != null
                             ? loadingProgress.cumulativeBytesLoaded /
-                                loadingProgress.expectedTotalBytes!
+                                  loadingProgress.expectedTotalBytes!
                             : null,
                         strokeWidth: 2,
                       ),
                     );
                   },
                   errorBuilder: (context, error, stackTrace) {
-                    // If even the fallback fails, show a broken image icon.
                     return Center(
                       child: Icon(
                         Icons.broken_image,
@@ -146,7 +143,6 @@ class ProductCard extends StatelessWidget {
             ),
           ),
 
-          // Sale/New label layer
           if (product.isOnSale)
             Positioned(
               top: 8,

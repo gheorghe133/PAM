@@ -4,16 +4,12 @@ import 'feed_section_model.dart';
 
 part 'feed_response_model.g.dart';
 
-/// Data model for the complete feed response
 @JsonSerializable()
 class FeedResponseModel {
   final FeedHeaderModel header;
   final List<FeedSectionModel> sections;
 
-  const FeedResponseModel({
-    required this.header,
-    required this.sections,
-  });
+  const FeedResponseModel({required this.header, required this.sections});
 
   factory FeedResponseModel.fromJson(Map<String, dynamic> json) =>
       _$FeedResponseModelFromJson(json);

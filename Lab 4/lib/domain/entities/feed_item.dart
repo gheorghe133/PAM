@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
 
-/// Domain entity for a feed item (product)
 class FeedItem extends Equatable {
   final int id;
   final String brand;
@@ -58,16 +57,16 @@ class FeedItem extends Equatable {
 
   @override
   List<Object?> get props => [
-        id,
-        brand,
-        name,
-        image,
-        price,
-        oldPrice,
-        discount,
-        rating,
-        reviews,
-        isFavorite,
-        isNew,
-      ];
+    id,
+    brand,
+    name,
+    image,
+    price,
+    oldPrice,
+    discount,
+    rating,
+    reviews,
+    isFavorite,
+    isNew,
+  ];
 }

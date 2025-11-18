@@ -4,7 +4,6 @@ import '../../core/constants.dart';
 
 part 'feed_item_model.g.dart';
 
-/// Data model for feed item with JSON serialization
 @JsonSerializable(explicitToJson: true)
 class FeedItemModel {
   final int id;
@@ -36,7 +35,6 @@ class FeedItemModel {
   });
 
   factory FeedItemModel.fromJson(Map<String, dynamic> json) {
-    // Use fallback image if the image field is missing or empty
     final imageUrl = json['image'] as String?;
     final finalImage = (imageUrl == null || imageUrl.isEmpty)
         ? AppConstants.fallbackImageUrl
@@ -60,7 +58,6 @@ class FeedItemModel {
 
   Map<String, dynamic> toJson() => _$FeedItemModelToJson(this);
 
-  /// Convert data model to domain entity
   FeedItem toEntity() {
     return FeedItem(
       id: id,

@@ -17,15 +17,13 @@ class ProductColorModel {
   });
 
   factory ProductColorModel.fromJson(Map<String, dynamic> json) {
-    // Handle missing or empty images by providing fallback
-    final imagesList = (json['images'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
+    final imagesList =
+        (json['images'] as List<dynamic>?)?.map((e) => e as String).toList() ??
         [];
 
-    // If images list is empty, add fallback image
-    final finalImages =
-        imagesList.isEmpty ? [AppConstants.fallbackImageUrl] : imagesList;
+    final finalImages = imagesList.isEmpty
+        ? [AppConstants.fallbackImageUrl]
+        : imagesList;
 
     return ProductColorModel(
       name: json['name'] as String,
@@ -37,11 +35,7 @@ class ProductColorModel {
   Map<String, dynamic> toJson() => _$ProductColorModelToJson(this);
 
   ProductColor toEntity() {
-    return ProductColor(
-      name: name,
-      hex: hex,
-      images: images,
-    );
+    return ProductColor(name: name, hex: hex, images: images);
   }
 }
 
@@ -50,10 +44,7 @@ class ShippingInfoModel {
   final String delivery;
   final String returns;
 
-  const ShippingInfoModel({
-    required this.delivery,
-    required this.returns,
-  });
+  const ShippingInfoModel({required this.delivery, required this.returns});
 
   factory ShippingInfoModel.fromJson(Map<String, dynamic> json) =>
       _$ShippingInfoModelFromJson(json);
@@ -61,10 +52,7 @@ class ShippingInfoModel {
   Map<String, dynamic> toJson() => _$ShippingInfoModelToJson(this);
 
   ShippingInfo toEntity() {
-    return ShippingInfo(
-      delivery: delivery,
-      returns: returns,
-    );
+    return ShippingInfo(delivery: delivery, returns: returns);
   }
 }
 
@@ -73,10 +61,7 @@ class SupportInfoModel {
   final String contactEmail;
   final String faqUrl;
 
-  const SupportInfoModel({
-    required this.contactEmail,
-    required this.faqUrl,
-  });
+  const SupportInfoModel({required this.contactEmail, required this.faqUrl});
 
   factory SupportInfoModel.fromJson(Map<String, dynamic> json) =>
       _$SupportInfoModelFromJson(json);
@@ -84,10 +69,7 @@ class SupportInfoModel {
   Map<String, dynamic> toJson() => _$SupportInfoModelToJson(this);
 
   SupportInfo toEntity() {
-    return SupportInfo(
-      contactEmail: contactEmail,
-      faqUrl: faqUrl,
-    );
+    return SupportInfo(contactEmail: contactEmail, faqUrl: faqUrl);
   }
 }
 
@@ -144,7 +126,6 @@ class RelatedProductModel {
   });
 
   factory RelatedProductModel.fromJson(Map<String, dynamic> json) {
-    // Use fallback image if the image field is missing or empty
     final imageUrl = json['image'] as String?;
     final finalImage = (imageUrl == null || imageUrl.isEmpty)
         ? AppConstants.fallbackImageUrl

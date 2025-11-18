@@ -13,30 +13,21 @@ class ExpandableSections extends StatelessWidget {
           height: 1,
           width: double.infinity,
         ),
-        _buildExpandableSection(
-          title: 'Item details',
-          onTap: () {},
-        ),
+        _buildExpandableSection(title: 'Item details', onTap: () {}),
         Container(
           color: const Color(0xFFE5E5E5),
           margin: const EdgeInsets.only(bottom: 12),
           height: 1,
           width: double.infinity,
         ),
-        _buildExpandableSection(
-          title: 'Shipping info',
-          onTap: () {},
-        ),
+        _buildExpandableSection(title: 'Shipping info', onTap: () {}),
         Container(
           color: const Color(0xFFE5E5E5),
           margin: const EdgeInsets.only(bottom: 12),
           height: 1,
           width: double.infinity,
         ),
-        _buildExpandableSection(
-          title: 'Support',
-          onTap: () {},
-        ),
+        _buildExpandableSection(title: 'Support', onTap: () {}),
         Container(
           color: const Color(0xFFE5E5E5),
           margin: const EdgeInsets.only(bottom: 20),

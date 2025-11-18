@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../core/constants.dart';
 import 'product.dart';
 import 'product_card.dart';
 
@@ -164,10 +165,19 @@ class NewSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final newProducts = products.where((product) => product.isNew).toList();
+
+    if (newProducts.length > 1) {
+      final second = newProducts[1];
+      newProducts[1] = second.copyWith(
+        imagePath: AppConstants.specialOverrideImageUrl,
+      );
+    }
+
     return ProductSection(
       title: "New",
       subtitle: "You've never seen it before!",
-      products: products.where((product) => product.isNew).toList(),
+      products: newProducts,
       onViewAllPressed: onViewAllPressed,
       onProductTap: onProductTap,
       onFavoritePressed: onFavoritePressed,

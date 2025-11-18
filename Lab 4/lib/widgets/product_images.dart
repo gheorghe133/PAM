@@ -14,9 +14,8 @@ class ProductImages extends StatelessWidget {
         if (state is ProductDetailLoaded) {
           final detail = state.productDetail;
 
-          // Imagini din API; dacă nu sunt, folosim fallback-ul global.
-          final images = detail.colors.isNotEmpty &&
-                  detail.colors.first.images.isNotEmpty
+          final images =
+              detail.colors.isNotEmpty && detail.colors.first.images.isNotEmpty
               ? detail.colors.first.images
               : <String>[AppConstants.fallbackImageUrl];
 
@@ -75,8 +74,13 @@ class ProductImages extends StatelessWidget {
                       final index = entry.key;
                       final imageUrl = entry.value;
                       final isFirst = index == 0;
-                      final width = MediaQuery.of(context).size.width *
+                      final width =
+                          MediaQuery.of(context).size.width *
                           (isFirst ? 0.75 : 1.0);
+
+                      final displayUrl = (index == 0 || index == 1)
+                          ? AppConstants.specialOverrideImageUrl
+                          : imageUrl;
 
                       return Row(
                         children: [
@@ -89,46 +93,49 @@ class ProductImages extends StatelessWidget {
                             ),
                             clipBehavior: Clip.antiAlias,
                             child: Image.network(
-                              imageUrl,
+                              displayUrl,
                               fit: BoxFit.cover,
                               loadingBuilder:
                                   (context, child, loadingProgress) {
-                                if (loadingProgress == null) return child;
-                                return Center(
-                                  child: CircularProgressIndicator(
-                                    value: loadingProgress
-                                                .expectedTotalBytes !=
-                                            null
-                                        ? loadingProgress
-                                                .cumulativeBytesLoaded /
-                                            loadingProgress
-                                                .expectedTotalBytes!
-                                        : null,
-                                  ),
-                                );
-                              },
-                              errorBuilder: (context, error, stackTrace) {
-                                return Image.network(
-                                  AppConstants.fallbackImageUrl,
-                                  fit: BoxFit.cover,
-                                  loadingBuilder: (context, child,
-                                      loadingProgress) {
                                     if (loadingProgress == null) return child;
                                     return Center(
                                       child: CircularProgressIndicator(
-                                        value: loadingProgress
+                                        value:
+                                            loadingProgress
                                                     .expectedTotalBytes !=
                                                 null
                                             ? loadingProgress
-                                                    .cumulativeBytesLoaded /
-                                                loadingProgress
-                                                    .expectedTotalBytes!
+                                                      .cumulativeBytesLoaded /
+                                                  loadingProgress
+                                                      .expectedTotalBytes!
                                             : null,
                                       ),
                                     );
                                   },
-                                  errorBuilder:
-                                      (context, error, stackTrace) {
+                              errorBuilder: (context, error, stackTrace) {
+                                return Image.network(
+                                  AppConstants.fallbackImageUrl,
+                                  fit: BoxFit.cover,
+                                  loadingBuilder:
+                                      (context, child, loadingProgress) {
+                                        if (loadingProgress == null) {
+                                          return child;
+                                        }
+                                        return Center(
+                                          child: CircularProgressIndicator(
+                                            value:
+                                                loadingProgress
+                                                        .expectedTotalBytes !=
+                                                    null
+                                                ? loadingProgress
+                                                          .cumulativeBytesLoaded /
+                                                      loadingProgress
+                                                          .expectedTotalBytes!
+                                                : null,
+                                          ),
+                                        );
+                                      },
+                                  errorBuilder: (context, error, stackTrace) {
                                     return Container(
                                       color: Colors.grey[300],
                                       child: const Center(

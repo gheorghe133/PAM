@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
 
-/// Domain entity for product color
 class ProductColor extends Equatable {
   final String name;
   final String hex;
@@ -16,35 +15,26 @@ class ProductColor extends Equatable {
   List<Object?> get props => [name, hex, images];
 }
 
-/// Domain entity for shipping info
 class ShippingInfo extends Equatable {
   final String delivery;
   final String returns;
 
-  const ShippingInfo({
-    required this.delivery,
-    required this.returns,
-  });
+  const ShippingInfo({required this.delivery, required this.returns});
 
   @override
   List<Object?> get props => [delivery, returns];
 }
 
-/// Domain entity for support info
 class SupportInfo extends Equatable {
   final String contactEmail;
   final String faqUrl;
 
-  const SupportInfo({
-    required this.contactEmail,
-    required this.faqUrl,
-  });
+  const SupportInfo({required this.contactEmail, required this.faqUrl});
 
   @override
   List<Object?> get props => [contactEmail, faqUrl];
 }
 
-/// Domain entity for product actions
 class ProductActions extends Equatable {
   final bool addToCart;
   final bool addToWishlist;
@@ -60,7 +50,6 @@ class ProductActions extends Equatable {
   List<Object?> get props => [addToCart, addToWishlist, share];
 }
 
-/// Domain entity for related product
 class RelatedProduct extends Equatable {
   final String id;
   final String title;
@@ -88,20 +77,19 @@ class RelatedProduct extends Equatable {
 
   @override
   List<Object?> get props => [
-        id,
-        title,
-        brand,
-        price,
-        oldPrice,
-        currency,
-        discount,
-        rating,
-        reviewsCount,
-        image,
-      ];
+    id,
+    title,
+    brand,
+    price,
+    oldPrice,
+    currency,
+    discount,
+    rating,
+    reviewsCount,
+    image,
+  ];
 }
 
-/// Domain entity for product detail
 class ProductDetail extends Equatable {
   final String id;
   final String title;
@@ -137,19 +125,19 @@ class ProductDetail extends Equatable {
 
   @override
   List<Object?> get props => [
-        id,
-        title,
-        brand,
-        description,
-        price,
-        currency,
-        rating,
-        reviewsCount,
-        colors,
-        sizes,
-        shippingInfo,
-        support,
-        actions,
-        relatedProducts,
-      ];
+    id,
+    title,
+    brand,
+    description,
+    price,
+    currency,
+    rating,
+    reviewsCount,
+    colors,
+    sizes,
+    shippingInfo,
+    support,
+    actions,
+    relatedProducts,
+  ];
 }

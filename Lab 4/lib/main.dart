@@ -22,12 +22,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Dependency Injection
-    // Data Layer
     final httpClient = http.Client();
     final remoteDataSource = RemoteDataSource(client: httpClient);
 
-    // Domain Layer (Repository Implementation from Data Layer)
     final FeedRepository feedRepository = FeedRepositoryImpl(
       remoteDataSource: remoteDataSource,
     );

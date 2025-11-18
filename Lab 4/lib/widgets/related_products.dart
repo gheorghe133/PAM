@@ -15,8 +15,6 @@ class RelatedProducts extends StatelessWidget {
         List<Product> relatedProducts = [];
 
         if (state is ProductDetailLoaded) {
-          // Convert related products from detail to Product entities, using the
-          // per-product image URL (which already applies a fallback at model level).
           relatedProducts = state.productDetail.relatedProducts.map((rp) {
             return Product(
               id: rp.id,
@@ -55,7 +53,10 @@ class RelatedProducts extends StatelessWidget {
                   ),
                   Text(
                     "${relatedProducts.length} items",
-                    style: const TextStyle(color: Color(0xFF9B9B9B), fontSize: 11),
+                    style: const TextStyle(
+                      color: Color(0xFF9B9B9B),
+                      fontSize: 11,
+                    ),
                   ),
                 ],
               ),
@@ -88,19 +89,22 @@ class RelatedProducts extends StatelessWidget {
                           width: 148,
                           height: 300,
                           onTap: () {
-                            // Load the new product detail
-                            context.read<FeedBloc>().add(LoadProductDetail(product.id));
+                            context.read<FeedBloc>().add(
+                              LoadProductDetail(product.id),
+                            );
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                 builder: (newContext) => BlocProvider.value(
                                   value: context.read<FeedBloc>(),
-                                  child: ProductDetailScreen(productId: product.id),
+                                  child: ProductDetailScreen(
+                                    productId: product.id,
+                                  ),
                                 ),
                               ),
                             );
                           },
-                          // No favorite functionality for related products
+
                           onFavoritePressed: null,
                         );
                       },

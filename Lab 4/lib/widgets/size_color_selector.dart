@@ -26,7 +26,10 @@ class SizeColorSelector extends StatelessWidget {
               child: IntrinsicHeight(
                 child: Container(
                   decoration: BoxDecoration(
-                    border: Border.all(color: const Color(0xFFF01F0E), width: 1),
+                    border: Border.all(
+                      color: const Color(0xFFF01F0E),
+                      width: 1,
+                    ),
                     borderRadius: BorderRadius.circular(8),
                     color: const Color(0xFFFFFFFF),
                   ),
@@ -79,7 +82,10 @@ class SizeColorSelector extends StatelessWidget {
               child: IntrinsicHeight(
                 child: Container(
                   decoration: BoxDecoration(
-                    border: Border.all(color: const Color(0xFF9B9B9B), width: 1),
+                    border: Border.all(
+                      color: const Color(0xFF9B9B9B),
+                      width: 1,
+                    ),
                     borderRadius: BorderRadius.circular(8),
                     color: const Color(0xFFFFFFFF),
                   ),
